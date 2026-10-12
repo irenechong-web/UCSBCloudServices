@@ -86,6 +86,7 @@ function Header({ currentPage }: { currentPage: "home" | "guide"| "guides" | "fa
               aria-current={
                 (item === "Home" && currentPage === "home") ||
                 (item === "Getting Started" && currentPage === "guide") ||
+                 (item === "Guides" && currentPage === "guides") || 
                 (item === "FAQ" && currentPage === "faq")
                   ? "page"
                   : undefined
@@ -965,23 +966,43 @@ function GuidesPage() {
 }
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "guide" | "faq">(
+  // Which page is showing. On first load, read the URL hash to decide.
+  const [currentPage, setCurrentPage] = useState<
+    "home" | "guide" | "guides" | "faq"            // NEW: added "guides"
+  >(
     window.location.hash === "#guide"
       ? "guide"
-      : window.location.hash === "#faq-page"
-        ? "faq"
-        : "home",
+      : window.location.hash === "#guides-page"     // NEW
+        ? "guides"                                 // NEW
+        : window.location.hash === "#faq-page"
+          ? "faq"
+          : "home",
   )
 
+  // Runs on every click. If a page-switching link was clicked, switch pages.
   function handleNavigation(event: React.MouseEvent<HTMLDivElement>) {
+    // Find the clicked link and where it points
     const href = (event.target as HTMLElement)
       .closest("a")
       ?.getAttribute("href")
 
-    if (href === "#guide" || href === "#home" || href === "#faq-page") {
+    if (
+      href === "#guide" ||
+      href === "#guides-page" ||                   // NEW: Guides is a page switch
+      href === "#home" ||
+      href === "#faq-page"
+    ) {
+      // Translate the link into a page name
       setCurrentPage(
-        href === "#guide" ? "guide" : href === "#faq-page" ? "faq" : "home",
+        href === "#guide"
+          ? "guide"
+          : href === "#guides-page"                // NEW
+            ? "guides"                             // NEW
+            : href === "#faq-page"
+              ? "faq"
+              : "home",
       )
+      // Scroll back to the top of the new page
       window.setTimeout(() => {
         window.scrollTo({ top: 0, behavior: "smooth" })
       }, 0)
@@ -991,8 +1012,11 @@ function App() {
   return (
     <div className="app-shell" onClick={handleNavigation}>
       <Header currentPage={currentPage} />
+      {/* Show whichever page matches currentPage */}
       {currentPage === "guide" ? (
         <DocumentationPage />
+      ) : currentPage === "guides" ? (               // NEW
+        <GuidesPage />                             // NEW
       ) : currentPage === "faq" ? (
         <FAQPage />
       ) : (
