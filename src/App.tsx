@@ -874,6 +874,96 @@ function FAQPage() {
   )
 }
 
+
+// NEW PAGE: a hub that lists all the available guides
+function GuidesPage() {
+  return (
+    <main id="main-content">
+      {/* ===== TOP BANNER (same look as the Getting Started page) ===== */}
+      <div className="doc-hero">
+        <div className="site-grid">
+          {/* Breadcrumb: "Cloud Services / Guides" */}
+          <nav className="breadcrumbs" aria-label="Breadcrumb">
+            <a href="#home">Cloud Services</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Guides</span>
+          </nav>
+
+          <div className="doc-hero__heading">
+            <div>
+              <p className="eyebrow">Guides</p>
+              <h1>Step-by-step guides</h1>
+              <p>
+                Walkthroughs for getting the most out of DREAM Lab Cloud
+                Services.
+              </p>
+            </div>
+            {/* The three colored hexagons on the right */}
+            <HexagonMotif />
+          </div>
+          {/* ^ closes doc-hero__heading */}
+        </div>
+        {/* ^ closes site-grid */}
+      </div>
+      {/* ^ closes doc-hero — these three were missing before */}
+
+      {/* ===== GUIDE CARDS ===== */}
+      <section className="home-section">
+        <div className="site-grid">
+          <div className="offer-grid">
+            {/* CARD 1: RStudio */}
+            <article className="offer-card offer-card--workspace">
+              <div className="offer-card__icon">
+                <ServiceIcon type="workspace" />
+              </div>
+              <div className="offer-card__content">
+                <span className="experimental-label">Coming soon</span>
+                <h3>RStudio</h3>
+                <p>
+                  Run R and RStudio in a cloud workspace for statistics, data
+                  analysis, and visualization.
+                </p>
+              </div>
+            </article>
+
+            {/* CARD 2: Marimo Notebooks */}
+            <article className="offer-card offer-card--workspace">
+              <div className="offer-card__icon">
+                <ServiceIcon type="workspace" />
+              </div>
+              <div className="offer-card__content">
+                <span className="experimental-label">Coming soon</span>
+                <h3>Marimo Notebooks</h3>
+                <p>
+                  Build reactive Python notebooks that update automatically as
+                  you change your code.
+                </p>
+              </div>
+            </article>
+
+            {/* CARD 3: AI Coding Agents (uses the AI Gateway color + icon) */}
+            <article className="offer-card offer-card--gateway">
+              <div className="offer-card__icon">
+                <ServiceIcon type="gateway" />
+              </div>
+              <div className="offer-card__content">
+                <span className="experimental-label">Coming soon</span>
+                <h3>Using AI Coding Agents</h3>
+                <p>
+                  Use AI coding assistants inside your workspace through the
+                  DREAM Lab AI Gateway.
+                </p>
+              </div>
+            </article>
+          </div>
+          {/* ^ closes offer-grid */}
+        </div>
+        {/* ^ closes site-grid */}
+      </section>
+    </main>
+  )
+}
+
 function App() {
   const [currentPage, setCurrentPage] = useState<"home" | "guide" | "faq">(
     window.location.hash === "#guide"
