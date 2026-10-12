@@ -185,7 +185,7 @@ function HomePage() {
             </h1>
             <p className="home-intro__lede">
               Secure, accessible cloud environments that help UCSB researchers,
-              instructors, and students move from an idea to working code.
+              instructors, and students move from an idea to functional and working code.
             </p>
             <div className="home-actions">
               <a className="home-button home-button--gold" href="#services">
