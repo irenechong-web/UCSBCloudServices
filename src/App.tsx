@@ -29,7 +29,7 @@ function HexagonMotif({ light = false }: { light?: boolean }) {
   )
 }
 
-function Header({ currentPage }: { currentPage: "home" | "guide"| "guides | "faq" }) {
+function Header({ currentPage }: { currentPage: "home" | "guide"| "guides" | "faq" }) {
   const navigation = [
     "Home",
     "Getting Started",
