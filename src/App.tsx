@@ -29,10 +29,11 @@ function HexagonMotif({ light = false }: { light?: boolean }) {
   )
 }
 
-function Header({ currentPage }: { currentPage: "home" | "guide" | "faq" }) {
+function Header({ currentPage }: { currentPage: "home" | "guide"| "guides | "faq" }) {
   const navigation = [
     "Home",
     "Getting Started",
+    "Guides",
     "Coder Workspaces",
     "AI Gateway",
     "FAQ",
@@ -65,6 +66,7 @@ function Header({ currentPage }: { currentPage: "home" | "guide" | "faq" }) {
               className={`primary-navigation__link${
                 (item === "Home" && currentPage === "home") ||
                 (item === "Getting Started" && currentPage === "guide") ||
+                (item === "Guides" && currentPage === "guides") || 
                 (item === "FAQ" && currentPage === "faq")
                   ? " is-current"
                   : ""
@@ -74,6 +76,8 @@ function Header({ currentPage }: { currentPage: "home" | "guide" | "faq" }) {
                   ? "#home"
                   : item === "Getting Started"
                     ? "#guide"
+                  : item === "Guides"          
+                    ? "#guides-page"    
                     : item === "FAQ"
                       ? "#faq-page"
                       : `#${item.toLowerCase().replaceAll(" ", "-")}`
