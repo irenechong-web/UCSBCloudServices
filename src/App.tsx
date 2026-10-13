@@ -275,7 +275,8 @@ function HomePage() {
               <p className="home-eyebrow">
                 <span aria-hidden="true" />A simple start
               </p>
-              <h2>Getting started in 3 steps</h2>
+              <h2>Getting started in 3 
+steps</h2>
             </div>
             <ArrowLink href="#guide">Read the full guide</ArrowLink>
           </div>
@@ -893,7 +894,8 @@ function GuidesPage() {
           <div className="doc-hero__heading">
             <div>
               <p className="eyebrow">Guides</p>
-              <h1>Step-by-step guides</h1>
+             <h1>Guides</h1>
+
               <p>
                 Walkthroughs for getting the most out of DREAM Lab Cloud
                 Services.
