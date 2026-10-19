@@ -2011,6 +2011,16 @@ h1 {
   border-color: var(--text-coral);
 }
 
+.doc-callout--note {
+  background: var(--gray-tint);
+  border-color: var(--aqua);
+}
+
+.doc-callout--important {
+  background: var(--gray-tint);
+  border-color: var(--coral);
+}
+
 .doc-callout__icon {
   width: 28px;
   height: 28px;
@@ -2028,6 +2038,16 @@ h1 {
   font-family: var(--font-sans);
 }
 
+.doc-callout--note .doc-callout__icon {
+  background: var(--aqua);
+  font-family: var(--font-sans);
+}
+
+.doc-callout--important .doc-callout__icon {
+  background: var(--coral);
+  font-family: var(--font-sans);
+}
+
 .doc-callout strong {
   color: var(--navy);
 }
@@ -2037,6 +2057,107 @@ h1 {
   color: var(--secondary);
   font-size: 0.91rem;
   line-height: 1.6;
+}
+
+.doc-content code {
+  background: var(--gray-tint);
+  border: 1px solid var(--gray);
+  border-radius: 3px;
+  padding: 2px 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  color: var(--ink);
+}
+
+.code-block pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 1em;
+  color: inherit;
+}
+
+.doc-content ul:not(.check-list),
+.doc-content ol {
+  margin: 16px 0 24px 24px;
+  color: var(--secondary);
+}
+
+.doc-content li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.doc-content a {
+  color: var(--aqua);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.doc-content a:hover {
+  color: var(--navy);
+}
+
+.doc-content h3 {
+  margin-top: 36px;
+  margin-bottom: 14px;
+  color: var(--navy);
+  font-size: 1.45rem;
+  font-weight: 800;
+}
+
+.doc-content h4 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--navy);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.doc-table-wrapper {
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+}
+
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  text-align: left;
+}
+
+.doc-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 12px 18px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.doc-table td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--gray);
+  color: var(--secondary);
+}
+
+.doc-table tr:nth-child(even) td {
+  background: var(--gray-tint);
+}
+
+.doc-table a {
+  color: var(--aqua);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.screenshot__img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .on-this-page {
