@@ -1,0 +1,64 @@
+---
+# This is the Guides and Tutorials index page, listing all available guides.
+title: "Guides & Tutorials"
+---
+
+Practical walkthroughs for getting the most out of DREAM Lab Cloud Services, from setting up RStudio to agentic coding.
+
+::: {.grid-cards}
+
+::: {.custom-card}
+<span class="tag">Core Guide</span>
+
+### Getting Started with Coder Workspaces
+Step-by-step walkthrough for creating your first workspace, logging in via UCSB SSO, and connecting with browser tools or local VS Code.
+
+[Read Guide →](getting-started.qmd)
+:::
+
+::: {.custom-card}
+<span class="tag">Tutorial</span>
+
+### Transferring Files to/from Your Workspace
+Learn how to upload and download data using Coder's Web File Browser, Magic Wormhole, or Google Drive integration with Rclone.
+
+[Read Guide →](file-transfer.qmd)
+:::
+
+::: {.custom-card}
+<span class="tag">IDE Guide</span>
+
+### RStudio Server
+Run RStudio Server directly in your web browser for statistics, tidyverse analysis, and reproducible research projects.
+
+[Read Guide →](rstudio.qmd)
+:::
+
+::: {.custom-card}
+<span class="tag">Notebook Guide</span>
+
+### Marimo Notebooks
+Build reactive Python notebooks stored as pure code, running in the background with tmux and integrated AI assistant chat.
+
+[Read Guide →](marimo.qmd)
+:::
+
+::: {.custom-card .custom-card--gateway}
+<span class="tag">AI Guide</span>
+
+### Using AI Coding Agents
+Run OpenCode safely in an isolated VM connected to on-campus CIT or DREAM Lab AI Gateway models.
+
+[Read Guide →](ai-agents.qmd)
+:::
+
+::: {.custom-card .custom-card--gateway}
+<span class="tag">Integration</span>
+
+### UCSB AI Commons API with OpenCode & Continue
+Configure OpenAI-compatible API credentials from the campus AI Commons for OpenCode and Continue in VS Code or Positron.
+
+[Read Guide →](ai-commons.qmd)
+:::
+
+:::

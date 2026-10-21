@@ -1,0 +1,139 @@
+---
+# This guide details how to configure the UCSB AI Commons API for OpenCode and Continue in VS Code or Positron.
+title: "Using the UCSB AI Commons API"
+---
+
+Configure the UCSB AI Commons OpenAI-compatible API for OpenCode (terminal agent) and Continue (VS Code & Positron extension).
+
+## Overview & Prerequisites
+
+This walkthrough explains how to configure the UCSB AI Commons API for two tools:
+
+- **OpenCode** (terminal-based coding agent)
+- **Continue** (VS Code and Positron extension)
+
+::: {.callout-important}
+## Requesting API Access
+The API is an add-on feature to AI Commons. To request access, [submit your request in Service-Now](https://ucsb.service-now.com/it?id=sc_cat_item&sys_id=05a9143feba583101cfffdf2dad0cdec). Once approved, you will see **API Key** in your My Menu portal list.
+:::
+
+![AI Commons portal navigation with API Key option.](../images/AI_commons.png)
+
+![AI Commons API dashboard interface.](../images/AI_commons_api.png)
+
+### Querying Model Names
+
+To list the models enabled on your account, run:
+
+```bash
+curl -s https://YOUR-AI-COMMONS-ENDPOINT/v1/models \
+  -H "Authorization: Bearer YOUR_AI_COMMONS_API_KEY" \
+  | python -c "import sys, json; [print(m['id']) for m in json.load(sys.stdin)['data']]"
+```
+
+---
+
+## Tool 1: Configuring OpenCode
+
+OpenCode is preinstalled in Coder workspaces, or can be installed locally following instructions on [opencode.ai](https://opencode.ai/docs#install).
+
+### Configuration File
+
+Add the custom provider to your global configuration file at `~/.config/opencode/opencode.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "my-custom-provider": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "AI Commons",
+      "options": {
+        "baseURL": "https://YOUR-AI-COMMONS-ENDPOINT/v1",
+        "apiKey": "YOUR_AI_COMMONS_API_KEY"
+      },
+      "models": {
+        "claude-v4.5-haiku": {
+          "name": "claude-v4.5-haiku"
+        },
+        "claude-v4.6-sonnet": {
+          "name": "claude-v4.6-sonnet"
+        },
+        "claude-v4.6-opus": {
+          "name": "claude-v4.6-opus"
+        }
+      }
+    }
+  }
+}
+```
+
+Replace `https://YOUR-AI-COMMONS-ENDPOINT/v1` and `YOUR_AI_COMMONS_API_KEY` with your real credentials.
+
+Launch OpenCode and select your model with `/models`:
+
+```bash
+opencode
+```
+
+---
+
+## Tool 2: Configuring Continue (VS Code / Positron)
+
+1. Search for and install **Continue** from the VS Code Extensions Marketplace.
+2. Open the Continue panel, click the gear icon (Settings), select **Configs**, and open **Main Config** (`~/.continue/config.yaml`).
+
+![Opening Main Config in Continue extension.](../images/continue.png)
+
+### Configuration YAML
+
+```yaml
+name: UCSB AI Commons
+version: 1.0.0
+schema: v1
+
+models:
+  - name: Claude Sonnet 4.6
+    provider: openai
+    model: claude-v4.6-sonnet
+    apiBase: https://YOUR-AI-COMMONS-ENDPOINT/v1
+    apiKey: YOUR_AI_COMMONS_API_KEY
+    roles:
+      - chat
+      - edit
+    capabilities:
+      - tool_use
+
+  - name: Claude Opus 4.6
+    provider: openai
+    model: claude-v4.6-opus
+    apiBase: https://YOUR-AI-COMMONS-ENDPOINT/v1
+    apiKey: YOUR_AI_COMMONS_API_KEY
+    roles:
+      - chat
+      - edit
+    capabilities:
+      - tool_use
+
+  - name: Claude Haiku 4.5
+    provider: openai
+    model: claude-v4.5-haiku
+    apiBase: https://YOUR-AI-COMMONS-ENDPOINT/v1
+    apiKey: YOUR_AI_COMMONS_API_KEY
+    roles:
+      - chat
+      - edit
+    capabilities:
+      - tool_use
+```
+
+Replace the endpoint URL and API key with your values, then open the Continue panel to start coding with your models.
+
+---
+
+## Authentication Troubleshooting
+
+- Verify your Base URL is correct.
+- Confirm `/v1` is not duplicated (e.g. avoid `/v1/v1`).
+- Confirm the API key is active in the AI Commons portal.
+- Ensure no leading or trailing whitespace was copied.

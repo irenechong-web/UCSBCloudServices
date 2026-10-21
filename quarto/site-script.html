@@ -1,0 +1,27 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Move campus-bar to be the very first element inside <body> above <header id="quarto-header">
+  var campusBar = document.querySelector(".campus-bar");
+  if (campusBar && document.body.firstChild !== campusBar) {
+    document.body.insertBefore(campusBar, document.body.firstChild);
+    campusBar.style.display = "block";
+  }
+
+  // Format page title block header on doc pages (all pages except index.qmd)
+  var isHomePage = window.location.pathname.endsWith("/index.html") ||
+                   window.location.pathname.endsWith("/quarto/") ||
+                   window.location.pathname.endsWith("/quarto/_site/") ||
+                   window.location.pathname === "/" ||
+                   document.body.classList.contains("fullcontent");
+
+  var titleBlock = document.getElementById("title-block-header");
+  if (titleBlock && !isHomePage) {
+    // Add subtitle / lead paragraph if present immediately after title block
+    var nextElem = titleBlock.nextElementSibling;
+    if (nextElem && nextElem.tagName === "P" && !nextElem.classList.contains("eyebrow")) {
+      nextElem.classList.add("doc-hero-lead");
+      titleBlock.appendChild(nextElem);
+    }
+  }
+});
+</script>

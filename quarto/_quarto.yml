@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "DREAM Lab Cloud Services"
+  site-url: "https://coder.dreamlab.ucsb.edu"
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    background: light
+    logo: images/ucsb-library-logo.png
+    title: false
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Coder Workspaces"
+        href: coder-workspaces.qmd
+      - text: "Guides"
+        menu:
+          - text: "All Guides"
+            href: guides/index.qmd
+          - text: "---"
+          - text: "Getting Started"
+            href: guides/getting-started.qmd
+          - text: "Transferring Files"
+            href: guides/file-transfer.qmd
+          - text: "RStudio Server"
+            href: guides/rstudio.qmd
+          - text: "Marimo Notebooks"
+            href: guides/marimo.qmd
+          - text: "Using AI Coding Agents"
+            href: guides/ai-agents.qmd
+          - text: "UCSB AI Commons API"
+            href: guides/ai-commons.qmd
+      - text: "AI Gateway"
+        href: ai-gateway.qmd
+      - text: "FAQ"
+        href: faq.qmd
+    right:
+      - text: "About DREAM Lab ↗"
+        href: https://www.library.ucsb.edu/dreamlab
+      - text: "Launch Coder ↗"
+        href: https://coder.dreamlab.ucsb.edu
+
+  page-footer:
+    left: "© 2026 The Regents of the University of California"
+    right: "UCSB Library DREAM Lab • dreamlab@library.ucsb.edu"
+
+format:
+  html:
+    theme:
+      - cosmo
+      - dreamlab.scss
+    css: []
+    include-before-body: campus-bar.html
+    include-after-body:
+      - footer.html
+      - site-script.html
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    smooth-scroll: true

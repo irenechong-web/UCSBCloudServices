@@ -1,0 +1,99 @@
+---
+# This guide demonstrates how to transfer files to and from a Coder Workspace using web, CLI, and cloud storage tools.
+title: "Transferring Files to/from Your Workspace"
+---
+
+Learn how to move files, scripts, and datasets into and out of your Coder environment using the Web File Browser, Magic Wormhole, or Google Drive via Rclone.
+
+## Three Ways to Transfer Files
+
+There are several ways to upload and download files to a Coder Workspace:
+
+- **Coder's built-in File Browser:** The most straightforward visual option.
+- **Magic Wormhole:** Fast and convenient for moving files or project folders between machines or workspaces.
+- **Rclone:** Connects your workspace directly to your UCSB Google Drive.
+
+---
+
+## Method 1: Coder File Browser
+
+The most convenient way to transfer files to/from a Coder Workspace is to use the built-in File Browser, accessible directly from the workspace dashboard.
+
+![Clicking the File Browser button opens a web management interface in a new window.](../images/workspace.png)
+
+Clicking the **File Browser** button from the workspace dashboard opens the File Browser in a new tab or window. (Ensure popups are enabled in your browser settings).
+
+![File Browser interface for uploading, downloading, and editing files.](../images/file-browser.png)
+
+---
+
+## Method 2: Magic Wormhole
+
+[Magic Wormhole](https://magic-wormhole.readthedocs.io/en/latest/) is a command-line utility that makes it easy to send files and directories directly between two machines using a short, one-time code. No accounts, cloud servers, or SSH keys required — just run a command on each machine and the transfer happens over an end-to-end encrypted channel.
+
+You can use Magic Wormhole without installation by running it with `uvx`, which executes Python tools in temporary environments. `uvx` is installed on all Coder Workspaces by default.
+
+### Sending a file or directory:
+
+```bash
+uvx magic-wormhole send ./myfile.txt
+# or for a directory:
+uvx magic-wormhole send ./my-project
+```
+
+Magic Wormhole will print a short one-time code such as `7-guitarist-revenge`. Use that code on the receiving machine:
+
+### Receiving a file or directory:
+
+```bash
+uvx magic-wormhole receive 7-guitarist-revenge
+```
+
+::: {.callout-tip}
+## Single-Use Codes
+The code is single-use and expires as soon as the transfer completes or is cancelled. This is a quick and secure way to migrate projects between Coder workspaces!
+:::
+
+---
+
+## Method 3: Rclone: Connecting to Google Drive
+
+[Rclone](https://rclone.org/) is a powerful file transfer tool that can mount your Google Drive to a local directory (such as `~/gdrive`) in your workspace.
+
+::: {.callout-note}
+## Desktop VS Code Required for Auth
+Initial authorization requires connecting to your workspace using the **VS Code Desktop application** so that browser authorization tokens can be forwarded to Rclone. Once configured, VS Code Desktop is no longer needed.
+:::
+
+1. Connect to your workspace using desktop VS Code (click the VS Code Desktop icon on the dashboard).
+2. In VS Code, open a Terminal (`View → Terminal` or `Ctrl+\``).
+3. Verify Rclone is installed, or install it:
+   ```bash
+   sudo apt update && sudo apt install rclone
+   ```
+4. Authorize read-only access to your Google Drive:
+   ```bash
+   rclone config create gdrive drive scopes drive.readonly
+   ```
+   *(For full read-write permissions, omit `scopes drive.readonly`)*.
+5. A web browser tab will open. Grant Rclone permission to access your Google Drive. Once finished, return to the VS Code terminal.
+6. Create a mount point folder:
+   ```bash
+   mkdir ~/gdrive
+   ```
+7. Mount Google Drive in the background:
+   ```bash
+   rclone mount gdrive: ~/gdrive --daemon
+   ```
+8. Confirm that you can view files in your Drive:
+   ```bash
+   ls ~/gdrive
+   ```
+
+To disconnect your Google Drive folder when done, run:
+
+```bash
+umount ~/gdrive
+```
+
+If `umount` reports a busy device, ensure no files are open and your terminal is not currently inside the `~/gdrive` directory.

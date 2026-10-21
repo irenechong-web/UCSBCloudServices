@@ -1,0 +1,103 @@
+---
+# This page contains answers to frequently asked questions about Coder Workspaces, hardware, and AI tools.
+title: "Frequently Asked Questions"
+---
+
+Everything you need to know about Coder workspaces, hardware, policies, file transfers, and the AI Gateway.
+
+## Accounts & Access
+
+::: {.callout-note collapse="true"}
+## Who can use DREAM Lab Cloud Services?
+Anyone with an active UCSB NetID (students, faculty, and staff) can create and use a Coder workspace for coursework, research, and data science projects.
+:::
+
+::: {.callout-note collapse="true"}
+## How do I sign in to Coder?
+Visit coder.dreamlab.ucsb.edu, click 'UCSB Login', and authenticate using your UCSB Single Sign-On credentials via Google.
+:::
+
+::: {.callout-note collapse="true"}
+## How long does a workspace last?
+Workspaces are provided for the duration of the academic quarter. At the end of each quarter, all workspaces are automatically deleted. Be sure to export your code and files before the end of the quarter.
+:::
+
+## Workspaces & Hardware
+
+::: {.callout-note collapse="true"}
+## What hardware resources does each workspace receive?
+Each workspace runs as an isolated virtual machine configured with 4 vCPUs, 16 GiB of RAM, a 64 GB persistent User Data Disk, and a 15 GB OS Disk.
+:::
+
+::: {.callout-note collapse="true"}
+## Why did my workspace stop running?
+Workspaces automatically shut down after four hours of inactivity to conserve shared campus compute resources. You can resume at any time by clicking the 'Start' button on the dashboard.
+:::
+
+::: {.callout-note collapse="true"}
+## How many workspaces can I have at once?
+Users may create and use only one active workspace at a time. Multiple active workspaces per user may be deleted without prior notice.
+:::
+
+## Software & Environments
+
+::: {.callout-note collapse="true"}
+## What software is preinstalled in Coder?
+All workspaces come with Ubuntu 26.04 LTS, Docker 29.8, Pixi package manager, R 4.6.1, Git, GitHub CLI (gh), jq, and uv/uvx. You can also enable RStudio Server, JupyterLab, and VS Code during creation.
+:::
+
+::: {.callout-note collapse="true"}
+## Can I install additional packages and tools?
+Yes. You have full sudo access to install system packages with `sudo apt install <package>`, Python environments with `uv` or `pixi`, and R packages with `install.packages()`. Packages in your home directory persist between stops and starts.
+:::
+
+::: {.callout-note collapse="true"}
+## Can I use desktop VS Code instead of the browser?
+Yes! Enable 'Visual Studio Code (Desktop)' when creating your workspace. Install the Coder extension in local VS Code, log in to coder.dreamlab.ucsb.edu, and connect directly.
+:::
+
+## Data, Files & Backups
+
+::: {.callout-note collapse="true"}
+## Are my files backed up automatically?
+No! Coder workspaces are not backed up. Users are responsible for backing up their own work. We recommend pushing your code to GitHub, mounting Google Drive with Rclone, or downloading copies regularly.
+:::
+
+::: {.callout-note collapse="true"}
+## How do I upload and download files?
+You can use the built-in web File Browser on your workspace dashboard, use Magic Wormhole (run `uvx magic-wormhole send <file>`), or mount your Google Drive via Rclone.
+:::
+
+::: {.callout-note collapse="true"}
+## Will my files remain after I stop my workspace?
+Yes. Stopping a workspace releases active compute resources but preserves all files in your home directory (`~`). However, permanently deleting a workspace destroys all files.
+:::
+
+## AI Gateway & Agents
+
+::: {.callout-note collapse="true"}
+## What is the DREAM Lab AI Gateway?
+An experimental service providing OpenAI-compatible API access to Google Gemini models (including gemini-4-argon and gemini-3.8-flash) hosted by campus cloud providers for coding assistants and research.
+:::
+
+::: {.callout-note collapse="true"}
+## Can I send sensitive research data to the AI Gateway?
+No. The DREAM Lab AI Gateway is NOT approved for data classified as P3 or P4 under UC protection levels. Never send restricted or personally identifiable data.
+:::
+
+::: {.callout-note collapse="true"}
+## How do I use OpenCode with campus models?
+OpenCode is preinstalled on your workspace. Run `opencode`, and use `/models` to select campus-hosted models through College IT (CIT) or the DREAM Lab AI Gateway.
+:::
+
+## Support & Troubleshooting
+
+::: {.callout-note collapse="true"}
+## My workspace won't start or is stuck. What should I do?
+Wait 2–3 minutes and refresh your browser. If it is still stuck, stop the workspace and click Start again. If problems persist, email dreamlab@library.ucsb.edu.
+:::
+
+::: {.callout-note collapse="true"}
+## Where can I get one-on-one help?
+Email dreamlab@library.ucsb.edu, drop by the Library DREAM Lab, or join the UCSB Carpentry Slack for community and staff support.
+:::

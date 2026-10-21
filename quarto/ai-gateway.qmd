@@ -1,0 +1,111 @@
+---
+# This page introduces the DREAM Lab AI Gateway, models, API key generation, and usage policies.
+title: "DREAM Lab AI Gateway"
+---
+
+Centralized, OpenAI-compatible API access to Large Language Models hosted by campus cloud providers for coding agents and research workflows.
+
+## Overview
+
+::: {.callout-important}
+## Experimental Service Notice
+This is an experimental service. Users may experience occasional interruptions, and we cannot guarantee its long-term availability.
+:::
+
+DREAM Lab's AI gateway service provides API access to Large Language Models (LLMs) hosted by campus cloud providers (currently, Google). It can be used in conjunction with a coding agent (such as OpenCode or Continue) or to build custom research AI workflows.
+
+**Note:** The gateway does not provide a web chat UI. The service is primarily oriented toward DREAM Lab workshop attendees, researchers learning AI-assisted coding, and Library staff.
+
+## API Endpoint & Supported Models
+
+The OpenAI-compatible API endpoint for the gateway service is:
+
+```
+https://litellm.dreamlab.ucsb.edu/v1
+```
+
+### Supported Google Gemini Models
+
+| Model Name | Best For | Description |
+|---|---|---|
+| `gemini-4-argon` | Complex reasoning & coding | Frontier model for challenging reasoning and software architecture tasks. |
+| `gemini-3.8-flash` | Agentic coding | Fast, highly capable model tuned for autonomous agent execution loops. |
+| `gemini-3.5-flash-lite` | Low-cost inference | High-throughput model ideal for text processing and lightweight tasks. |
+| `gemini-embedding-2` | Embeddings | Multimodal embedding model for vector search and retrieval. |
+
+## Creating an API Key
+
+Anyone with a valid UCSB NetID can create a key through the **[API Key Manager ↗](https://litellm.dreamlab.ucsb.edu/dreamlab-keys)**.
+
+::: {.callout-note}
+## Key Policies & Restrictions
+- You may have only one active key at a time.
+- If you regenerate a new key, your previous key is automatically disabled.
+- Keys expire automatically after **three months**.
+- Your key has an allocated budget that resets periodically. Use the key manager to view your remaining balance.
+- Usage reflects real API expenses; requests to larger models consume quota faster than lighter models.
+:::
+
+## Using the Gateway with Python
+
+Because the gateway exposes an OpenAI-compatible endpoint, you can interact with models using the standard `openai` Python library.
+
+First, set up a virtual environment and install the library:
+
+```bash
+mkdir llm-example
+cd llm-example
+uv venv
+source .venv/bin/activate
+uv pip install openai
+```
+
+Create a script (`main.py`) specifying the gateway base URL:
+
+```python
+import os
+from openai import OpenAI
+
+# In a Coder Workspace with a configured key, DREAMLAB_LLM_KEY is set automatically
+api_key = os.environ.get("DREAMLAB_LLM_KEY", "your-api-key-here")
+
+client = OpenAI(
+    api_key=api_key,
+    base_url="https://litellm.dreamlab.ucsb.edu/v1"
+)
+
+response = client.chat.completions.create(
+    model="gemini-3.5-flash-lite",
+    messages=[
+        {"role": "user", "content": "Explain the difference between a list and a tuple in Python."}
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
+Run the script:
+
+```bash
+python main.py
+```
+
+## Data Privacy & Security
+
+::: {.callout-warning}
+## Data Classification Restriction
+The DREAM Lab AI Gateway **IS NOT approved** for use with data classified as **P3** or **P4** under the UC data protection levels.
+:::
+
+The service routes requests through Google's Gemini Enterprise Agent Platform: Google will not use campus data to train or fine-tune AI models. For full compliance details, see [UC Protection Levels](https://it.ucsb.edu/security/compliance/uc-protection-levels) and Google's zero data retention agreements.
+
+## Responsible Use
+
+You are responsible for how you use this service and anything it generates. Verify outputs before relying on them in research. Do not use AI services as a substitute for medical, legal, or financial advice.
+
+*"If an action wasn't permissible before AI, it isn't permissible with AI."* — UC AI Council
+
+### Campus Policies
+
+- [UC Responsible AI Principles ↗](https://ai.universityofcalifornia.edu/governance-transparency/)
+- [UCSB Guidelines for AI Use ↗](https://cio.ucsb.edu/artificial-intelligence/ai-use-guidelines)

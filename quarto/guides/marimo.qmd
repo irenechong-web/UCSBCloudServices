@@ -1,0 +1,95 @@
+---
+# This guide explains how to install and run Marimo reactive notebooks and configure AI assistants.
+title: "Marimo Notebooks"
+---
+
+Build reactive, reproducible Python notebooks stored as pure Python code, with integrated AI assistants connected to the DREAM Lab AI Gateway.
+
+## Overview
+
+Marimo is a modern Python notebook tool. Unlike Jupyter, Marimo notebooks are stored as plain Python files and automatically re-run dependent cells when a cell changes. Marimo has integrated AI chat and agent tools that can be configured to use models through the [DREAM Lab AI Gateway](../ai-gateway.qmd).
+
+---
+
+## Step 1: Creating the Workspace & Installing Marimo
+
+Create a standard workspace at [coder.dreamlab.ucsb.edu](https://coder.dreamlab.ucsb.edu). A default workspace is sufficient (no extra optional software required).
+
+Once booted, open a **Terminal** from the dashboard and run:
+
+```bash
+# Create a project folder and set it as your working directory
+mkdir my-project
+cd my-project
+
+# Create a Python virtual environment with uv
+uv venv
+
+# Install marimo in the environment
+uv pip install marimo
+
+# Run the marimo server
+uv run marimo edit --no-token --headless
+```
+
+---
+
+## Step 2: Running Marimo in the Background with tmux
+
+To keep Marimo running after closing your terminal window, use `tmux`:
+
+```bash
+# Run in a persistent tmux session
+cd ~/my-project
+tmux new-session -d -s marimo 'uv run marimo edit --no-token --headless'
+```
+
+To stop the background server at any time:
+
+```bash
+tmux kill-session -t marimo
+```
+
+### Accessing the Marimo Interface
+
+With Marimo running, access the interface through the **Ports** menu on your workspace dashboard:
+
+![Click the port associated with the Marimo server.](../images/ports-menu.png)
+
+![Create a new reactive notebook directly in your project folder.](../images/marimo-dashboard.png)
+
+---
+
+## Step 3: Configuring Chat and AI Agents
+
+Marimo features integrated AI code generation and assistant chat. You can connect it to models through the [DREAM Lab AI Gateway](../ai-gateway.qmd) using your personal API key.
+
+### 1. Install AI Dependencies
+
+Open **User Settings** (gear icon in the top right). Under **Optional Dependencies**, ensure **AI features** are installed, or click **Install with uv**.
+
+### 2. Add a Custom AI Provider
+
+Under the **AI** panel, go to **AI Providers** and click **Add Provider**:
+
+- **Provider name:** `litellm_proxy`
+- **Base URL:** `https://litellm.dreamlab.ucsb.edu`
+- **API key:** your personal AI Gateway key
+
+### 3. Add a Model
+
+In the **AI Models** tab, click **+ Add Model**. Choose `litellm_proxy` as the provider, enter `gemini-3-flash-preview`, and click **Add**.
+
+![Add a custom model from the litellm_proxy provider.](../images/marimo-add-model.png)
+
+### 4. Configure AI Features to Use the Model
+
+In the **AI Features** tab, set Provider to `custom` and choose your model for **Autocomplete**, **Chat**, and **Edit** models.
+
+![Configure autocomplete and assistant models.](../images/marimo-ai-features.png)
+
+### 5. Confirm Chat Interface
+
+Open the **Chat and Agents** UI from the notebook menu to begin prompting.
+
+![Marimo integrated AI chat assistant.](../images/marimo-chat.png)

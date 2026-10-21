@@ -1,0 +1,88 @@
+---
+# This is the homepage of the UCSB DREAM Lab Cloud Services website.
+# It introduces the cloud computing services, getting started steps, and support links.
+title: "DREAM Lab Cloud Services"
+toc: false
+---
+
+::: {.hero-banner}
+<p class="eyebrow">UCSB Library</p>
+
+# DREAM Lab Cloud Services
+
+Cloud computing services for research and teaching at UC Santa Barbara. Managed by the [UCSB Library DREAM Lab](https://www.library.ucsb.edu/dreamlab) using computing resources provided by the [College of Letters and Science IT (LSIT)](https://www.lsit.ucsb.edu).
+
+[Launch a Workspace ↗](https://coder.dreamlab.ucsb.edu){.btn-gold target="_blank"} &nbsp;
+[Getting Started Guide](guides/getting-started.qmd){.btn-navy}
+:::
+
+## What we offer
+
+Flexible tools supported by people who understand research, teaching, and creative practice.
+
+::: {.grid-cards}
+
+::: {.custom-card}
+### Coder Workspaces
+On-demand virtual machines with commonly used data science tools pre-installed. Anyone with a UCSB NetID can create a workspace for the duration of the academic quarter.
+
+[Explore Coder Workspaces →](coder-workspaces.qmd)
+:::
+
+::: {.custom-card .custom-card--gateway}
+<span class="tag">Experimental</span>
+
+### AI Gateway
+API access to Large Language Models (LLMs) hosted by campus cloud providers through an OpenAI-compatible endpoint for coding agents and research workflows.
+
+[Learn about the AI Gateway →](ai-gateway.qmd)
+:::
+
+:::
+
+---
+
+## Getting started in 3 steps
+
+[Read the full guide →](guides/getting-started.qmd)
+
+::: {.step-item}
+::: {.step-badge}
+01
+:::
+::: {.step-content}
+### Log in with your UCSB NetID
+Visit **[coder.dreamlab.ucsb.edu](https://coder.dreamlab.ucsb.edu)** and log in securely using UCSB Single Sign-On via Google.
+:::
+:::
+
+::: {.step-item}
+::: {.step-badge}
+02
+:::
+::: {.step-content}
+### Create a workspace
+Choose a name, accept usage policies, and enable optional tools like RStudio, JupyterLab, or VS Code.
+:::
+:::
+
+::: {.step-item}
+::: {.step-badge}
+03
+:::
+::: {.step-content}
+### Open in browser or local IDE
+Work in your browser via VS Code Web, RStudio, or Terminal, or connect directly from desktop VS Code or SSH.
+:::
+:::
+
+---
+
+## Need help?
+
+Find answers in our documentation or talk through your project with a DREAM Lab specialist.
+
+- **[Visit the FAQ](faq.qmd)** — Browse common questions about hardware, policies, and tools.
+- **[UCSB Carpentry Slack ↗](https://join.slack.com/t/ucsbcarpentry/shared_invite/zt-3chxqtb2b-cVc3l~yj1ghUhZLNmOLfhQ)** — Ask questions in real time with our campus community.
+- **Email us:** [dreamlab@library.ucsb.edu](mailto:dreamlab@library.ucsb.edu) — Email our team directly for consultations.
+- **[About DREAM Lab ↗](https://www.library.ucsb.edu/dreamlab)** — Workshops, consultations, and digital research support.
