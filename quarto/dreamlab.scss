@@ -71,7 +71,11 @@ body {
   color: var(--ink);
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;
-  padding-top: 0 !important; // override headroom if needed
+  padding-top: 0 !important;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 // Hide standard empty nav-footer since we have our custom rich site-footer
@@ -79,60 +83,27 @@ footer.footer {
   display: none !important;
 }
 
-// Headings typography - reduced page title h1 size so it's large but not overwhelming
-h1, h2, h3, h4, h5, h6 {
-  color: var(--navy);
-  font-weight: 800;
-  letter-spacing: -0.025em;
-}
-
-h1.title {
-  margin-bottom: 0.75rem;
-  font-size: clamp(2rem, 4vw, 2.85rem) !important;
-  line-height: 1.15 !important;
-  color: var(--navy);
-}
-
-h2 {
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  margin-top: 3.5rem;
-  margin-bottom: 1.25rem;
-}
-
-h3 {
-  font-size: 1.35rem;
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  color: var(--secondary);
-  font-size: 1.04rem;
-  line-height: 1.7;
-}
-
-p strong {
-  color: var(--ink);
-}
-
 // ==========================================
-// CAMPUS BAR (Full-width strip at the very top of every page)
+// UNIFIED CONTAINER ALIGNMENT (SHARED LEFT EDGE & MAX-WIDTH)
 // ==========================================
+// Max width container matching React site's min(1180px, calc(100% - 48px))
+$site-max-width: 1180px;
+$home-max-width: 1380px;
+
+// Top campus bar
 .campus-bar {
   width: 100%;
   background: var(--navy);
   color: var(--white);
   font-size: 0.78rem;
   font-weight: 700;
-  position: relative;
-  z-index: 1040;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   .campus-bar__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: $site-max-width;
     min-height: 40px;
     margin: 0 auto;
     padding: 0 24px;
@@ -168,9 +139,12 @@ p strong {
   }
 }
 
-// ==========================================
-// NAVBAR STYLING & LOGO
-// ==========================================
+// On the homepage, widen top campus bar container
+body.fullcontent .campus-bar .campus-bar__inner {
+  max-width: $home-max-width;
+}
+
+// Header & Navbar
 #quarto-header {
   position: relative !important;
   top: 0 !important;
@@ -179,19 +153,24 @@ p strong {
 .navbar {
   background: var(--white) !important;
   border-bottom: 1px solid var(--gray);
-  padding: 0.85rem 1.5rem;
-  position: relative;
+  padding: 0.75rem 0 !important;
 
   .navbar-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
+    max-width: $site-max-width !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  // On the homepage, widen navbar container to match wide content
+  body.fullcontent & .navbar-container {
+    max-width: $home-max-width !important;
   }
 
   .navbar-brand-container {
-    margin-right: 2rem !important;
+    margin: 0 2rem 0 0 !important;
+    padding: 0 !important;
     margin-left: 0 !important;
 
     .navbar-brand {
@@ -201,7 +180,7 @@ p strong {
       margin: 0;
 
       .navbar-logo {
-        max-height: 52px;
+        max-height: 48px;
         width: auto;
         display: block;
       }
@@ -247,31 +226,185 @@ p strong {
   }
 }
 
-// ==========================================
-// PAGE LAYOUT & TITLE BAND (Hero)
-// ==========================================
-// Generous spacing between header and page title: at least 3rem
+// Quarto main container alignment
 #quarto-content {
-  margin-top: 0 !important;
+  flex: 1 0 auto; // Keeps footer pushed down in normal document flow
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+
+  // On fullcontent pages (like index.qmd)
+  &.quarto-container {
+    min-height: auto;
+  }
 }
 
-// Style page title block header with light gray background band across pages
-header.quarto-title-block {
-  margin: 0 0 3.5rem 0 !important;
-  padding: 3rem 0 2.5rem 0 !important;
-  background-color: var(--gray-tint);
-  border-bottom: 1px solid var(--gray);
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw !important;
-  margin-right: -50vw !important;
+// Main content container sharing the exact same max-width and left edge
+main.content {
+  max-width: $site-max-width !important;
+  margin: 0 auto !important;
+  padding: 2.5rem 24px 4rem 24px !important;
+  width: 100% !important;
+}
 
-  .quarto-title {
-    max-width: 1200px;
+// On the homepage, expand main content container to full-screen feel
+body.fullcontent main.content {
+  max-width: $home-max-width !important;
+}
+
+// On documentation pages with a right TOC margin-sidebar
+body:not(.fullcontent) {
+  #quarto-content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  main.content {
+    max-width: 860px !important;
+    margin: 0 !important;
+    padding: 2.5rem 24px 4rem 0 !important;
+  }
+
+  #quarto-margin-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    padding-left: 24px;
+    padding-top: 2.5rem;
+  }
+
+  // Wrapper for document and sidebar together constrained to $site-max-width
+  @media (min-width: 992px) {
+    #quarto-content {
+      max-width: $site-max-width;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+    }
+
+    main.content {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+// Headings typography - reduced page title h1 size so it's large but not overwhelming
+h1, h2, h3, h4, h5, h6 {
+  color: var(--navy);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+h1.title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 2.75rem) !important;
+  line-height: 1.15 !important;
+  color: var(--navy);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-top: 3.5rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: var(--secondary);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+p strong {
+  color: var(--ink);
+}
+
+// ==========================================
+// PAGE TITLE BAND & HOME HERO (NORMAL FLOW, NO FIXED/ABSOLUTE)
+// ==========================================
+// Home page hero banner in normal document flow
+.hero-banner {
+  background: var(--gray-tint);
+  border: none;
+  border-radius: 0;
+  padding: 4.5rem 0;
+  margin: 0 0 3.5rem 0;
+  width: 100%;
+  box-sizing: border-box;
+
+  .hero-banner__inner {
+    max-width: $home-max-width;
     margin: 0 auto;
     padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+  }
+
+  .hero-banner__content {
+    flex: 1 1 58%;
+    max-width: 820px;
+  }
+
+  .hero-banner__visual {
+    flex: 0 1 42%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-banner__logo {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    display: block;
+    border: none !important;
+    box-shadow: none !important;
+    filter: drop-shadow(0 20px 24px rgba(0, 54, 96, 0.15));
+  }
+
+  .eyebrow {
+    color: var(--text-coral);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: normal;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(2.3rem, 5vw, 3.4rem) !important;
+    line-height: 1.08;
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    font-size: 1.15rem;
+    color: var(--secondary);
+    max-width: 760px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+}
+
+// Header title block for docs pages with light gray background band
+header.quarto-title-block {
+  background-color: var(--gray-tint);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  padding: 2.5rem 2.5rem 2rem 2.5rem !important;
+  margin: 0 0 3rem 0 !important;
+  width: 100%;
+  box-sizing: border-box;
+
+  .quarto-title {
+    margin: 0;
+    padding: 0;
 
     &::before {
       content: "Cloud Services";
@@ -279,18 +412,17 @@ header.quarto-title-block {
       color: var(--text-coral);
       font-size: 0.75rem;
       font-weight: 800;
-      letter-spacing: 0.14em;
+      letter-spacing: normal;
       text-transform: uppercase;
       margin-bottom: 0.75rem;
     }
   }
 
   .doc-hero-lead {
-    max-width: 1200px;
-    margin: 0.75rem auto 0;
-    padding: 0 24px;
+    margin: 0.75rem 0 0 0;
+    padding: 0;
     color: var(--secondary);
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1.6;
   }
 }
@@ -300,86 +432,37 @@ body.fullcontent header.quarto-title-block {
   display: none !important;
 }
 
-// Main page container spacing
-main.content {
-  padding-top: 1rem;
-  padding-bottom: 4rem;
-}
-
-// Homepage Hero Banner
-.hero-banner {
-  background: var(--gray-tint);
-  border-bottom: 1px solid var(--gray);
-  padding: 4rem 0 3.5rem 0;
-  margin: 0 0 4rem 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw !important;
-  margin-right: -50vw !important;
-
-  .eyebrow {
-    color: var(--text-coral);
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  h1 {
-    font-size: clamp(2.5rem, 5.5vw, 4rem) !important;
-    line-height: 1.05;
-    margin-bottom: 1.5rem;
-  }
-
-  p {
-    font-size: 1.2rem;
-    color: var(--secondary);
-    max-width: 780px;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  > * {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-}
-
 // ==========================================
 // GENEROUS SPACING BETWEEN SECTIONS & CARDS
 // ==========================================
-// More space between sections
 section.level2, section.level3 {
   margin-top: 3.5rem !important;
-  margin-bottom: 2.5rem !important;
+  margin-bottom: 2rem !important;
 }
 
 hr {
-  margin: 4.5rem 0;
+  margin: 4rem 0;
   border-color: var(--gray);
   opacity: 0.8;
 }
 
-// Generous spacing between cards
+// Grid cards sharing the container flow
 .grid-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 2.5rem; // increased from 1.5rem
-  margin: 3rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: stretch;
+  gap: 2.25rem;
+  margin: 2.5rem 0;
 }
 
 .custom-card {
+  height: 100%;
+  box-sizing: border-box;
   background: var(--white);
   border: 1px solid var(--gray);
   border-top: 6px solid var(--sea-green);
   border-radius: 4px;
-  padding: 2.25rem; // increased padding
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0 14px 35px rgba(0, 54, 96, 0.07);
@@ -394,11 +477,21 @@ hr {
     border-top-color: var(--coral);
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0 !important;
+  }
+
   h3 {
-    margin-top: 0.5rem;
+    margin-top: 0 !important;
     color: var(--navy);
     font-size: 1.5rem;
     line-height: 1.25;
+  }
+
+  p:has(> .tag) {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    flex-grow: 0;
   }
 
   p {
@@ -415,7 +508,7 @@ hr {
     font-size: 0.68rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: normal;
     padding: 4px 10px;
     background: var(--gray-tint);
     color: var(--text-coral);
@@ -435,7 +528,7 @@ hr {
   }
 }
 
-// Step list items with generous spacing
+// Step list items
 .step-item {
   display: flex;
   gap: 1.75rem;
@@ -454,6 +547,11 @@ hr {
     place-items: center;
     font-weight: 800;
     font-size: 1.15rem;
+
+    p {
+      margin: 0;
+      color: var(--white);
+    }
   }
 
   .step-content {
@@ -472,7 +570,7 @@ hr {
 }
 
 // ==========================================
-// CALLOUTS MATCHING DESIGN
+// CALLOUTS, CODE & TABLES
 // ==========================================
 .callout {
   border-radius: 4px;
@@ -549,9 +647,6 @@ hr {
   }
 }
 
-// ==========================================
-// CODE BLOCKS & TABLES
-// ==========================================
 pre {
   background-color: var(--navy) !important;
   color: var(--white) !important;
@@ -608,7 +703,6 @@ table {
   }
 }
 
-// Screenshots
 figure, .quarto-figure {
   margin: 3rem 0;
 
@@ -628,7 +722,6 @@ figure, .quarto-figure {
   }
 }
 
-// Buttons
 .btn-gold {
   background-color: var(--gold);
   color: var(--navy);
@@ -666,18 +759,19 @@ figure, .quarto-figure {
 }
 
 // ==========================================
-// SITE FOOTER
+// FOOTER IN NORMAL DOCUMENT FLOW (NO FIXED / ABSOLUTE)
 // ==========================================
 .site-footer {
-  background: var(--navy);
-  border-top: 6px solid var(--gold);
-  color: var(--white);
-  padding: 4.5rem 0 2.5rem;
-  margin-top: 5rem;
+  flex-shrink: 0;
   width: 100%;
+  background: #003660;
+  border-top: 6px solid var(--gold);
+  color: #ffffff;
+  padding: 4.5rem 0 2.5rem;
+  margin-top: auto; // Pushes footer to bottom in flex container
 
   .footer-inner {
-    max-width: 1200px;
+    max-width: $site-max-width;
     margin: 0 auto;
     padding: 0 24px;
     display: grid;
@@ -688,14 +782,14 @@ figure, .quarto-figure {
   h4 {
     color: var(--gold);
     font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    letter-spacing: normal;
     text-transform: uppercase;
     font-weight: 800;
     margin-bottom: 1.25rem;
   }
 
   p, address {
-    color: var(--gray-tint);
+    color: #ffffff;
     font-size: 0.92rem;
     line-height: 1.65;
     margin-bottom: 0.6rem;
@@ -703,7 +797,7 @@ figure, .quarto-figure {
   }
 
   a {
-    color: var(--white);
+    color: #ffffff;
     text-decoration-color: var(--sea-green);
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
@@ -720,19 +814,42 @@ figure, .quarto-figure {
   }
 
   .footer-legal {
-    max-width: 1200px;
+    max-width: $site-max-width;
     margin: 3.5rem auto 0;
     padding: 1.75rem 24px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.78rem;
-    color: var(--gray-line);
+    color: #ffffff;
+
+    p {
+      color: #ffffff;
+    }
+  }
+}
+
+// On the homepage, widen footer container to match wide content
+body.fullcontent .site-footer {
+  .footer-inner,
+  .footer-legal {
+    max-width: $home-max-width;
   }
 }
 
 // ==========================================
 // RESPONSIVE / MOBILE STYLING
 // ==========================================
-@media (max-width: 900px) {
+@media (max-width: 991.98px) {
+  body:not(.fullcontent) {
+    #quarto-content {
+      padding: 0 16px !important;
+    }
+
+    main.content {
+      max-width: 100% !important;
+      padding: 2rem 0 !important;
+    }
+  }
+
   .site-footer .footer-inner {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
@@ -760,38 +877,52 @@ figure, .quarto-figure {
   }
 
   .navbar {
-    padding: 0.6rem 1rem;
+    padding: 0.6rem 0 !important;
+
+    .navbar-container {
+      padding: 0 16px !important;
+    }
 
     .navbar-brand-container .navbar-brand .navbar-logo {
-      max-height: 40px;
+      max-height: 38px;
+    }
+  }
+
+  main.content {
+    padding: 1.5rem 16px 3rem 16px !important;
+  }
+
+  .hero-banner {
+    padding: 2.25rem 0;
+    margin-bottom: 2.5rem;
+
+    .hero-banner__inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+      padding: 0 16px;
+    }
+
+    .hero-banner__visual {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .hero-banner__logo {
+      max-width: 240px;
+    }
+
+    h1 {
+      font-size: 2.1rem !important;
     }
   }
 
   header.quarto-title-block {
-    padding: 2rem 0 1.5rem 0 !important;
+    padding: 1.75rem 1.5rem !important;
     margin-bottom: 2rem !important;
 
-    .quarto-title {
-      padding: 0 16px;
-    }
-
     .doc-hero-lead {
-      padding: 0 16px;
       font-size: 1.05rem;
-    }
-  }
-
-  .hero-banner {
-    padding: 2.5rem 0 2rem 0;
-    margin-bottom: 2.5rem;
-
-    > * {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
-    h1 {
-      font-size: 2.2rem !important;
     }
   }
 
@@ -800,14 +931,24 @@ figure, .quarto-figure {
     gap: 0.75rem;
 
     .step-badge {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       font-size: 0.95rem;
     }
   }
 
-  .site-footer .footer-inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .site-footer {
+    padding: 3rem 0 2rem;
+
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 0 16px;
+    }
+
+    .footer-legal {
+      padding: 1.5rem 16px 0;
+      margin-top: 2rem;
+    }
   }
 }

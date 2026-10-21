@@ -6,6 +6,8 @@ toc: false
 ---
 
 ::: {.hero-banner}
+::: {.hero-banner__inner}
+::: {.hero-banner__content}
 <p class="eyebrow">UCSB Library</p>
 
 # DREAM Lab Cloud Services
@@ -14,6 +16,12 @@ Cloud computing services for research and teaching at UC Santa Barbara. Managed 
 
 [Launch a Workspace ↗](https://coder.dreamlab.ucsb.edu){.btn-gold target="_blank"} &nbsp;
 [Getting Started Guide](guides/getting-started.qmd){.btn-navy}
+:::
+
+::: {.hero-banner__visual}
+![](images/dream-lab-logo.png){.hero-banner__logo alt="DREAM Lab, UC Santa Barbara Library"}
+:::
+:::
 :::
 
 ## What we offer

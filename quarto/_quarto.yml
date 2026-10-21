@@ -41,8 +41,6 @@ website:
     right:
       - text: "About DREAM Lab ↗"
         href: https://www.library.ucsb.edu/dreamlab
-      - text: "Launch Coder ↗"
-        href: https://coder.dreamlab.ucsb.edu
 
   page-footer:
     left: "© 2026 The Regents of the University of California"
