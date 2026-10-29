@@ -1,0 +1,310 @@
+[
+  {
+    "objectID": "coder-workspaces.html",
+    "href": "coder-workspaces.html",
+    "title": "Coder Workspaces: Overview",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "coder-workspaces.html#overview",
+    "href": "coder-workspaces.html#overview",
+    "title": "Coder Workspaces: Overview",
+    "section": "Overview",
+    "text": "Overview\nCoder Workspaces are on-demand virtual machines with commonly used data science tools pre-installed. Anyone with a UCSB NetID can create a workspace to use for the duration of the academic quarter. Workspaces are deleted at the end of each quarter.\nThe service is managed by the Library DREAM Lab and uses computing resources provided by the College of Letters and Science IT (LSIT).\nSee our Getting Started Guide for a step-by-step introduction to creating and connecting to your first workspace."
+  },
+  {
+    "objectID": "coder-workspaces.html#hardware-and-software",
+    "href": "coder-workspaces.html#hardware-and-software",
+    "title": "Coder Workspaces: Overview",
+    "section": "Hardware and Software",
+    "text": "Hardware and Software\nEach workspace is an isolated virtual machine running Ubuntu Linux with dedicated resources:\n\n\n\nResources\nDescription\n\n\n\n\nCPU\n4 vCPUs\n\n\nMemory\n16 GiB\n\n\nUser Data Disk\n64 GB\n\n\nOS Disk\n15 GB\n\n\n\n\nDefault Software\nAll workspaces include the following software pre-installed:\n\n\n\nName\nVersion\nDescription\n\n\n\n\nUbuntu Linux\n26.04 LTS\nOperating System\n\n\nDocker\n29.8.0\nContainer Runtime\n\n\nPixi\nv0.80.0\nPython package manager\n\n\nR\nv4.6.1\nR programming language\n\n\nGit\nv2.53.0\nVersion control software\n\n\ngh\nv2.46.0\nGitHub CLI\n\n\njq\nv1.8.1\nCommand line JSON processor\n\n\nuv / uvx\n0.12.13\nPython package installer/runner\n\n\n\nAdditional software may be installed using apt or pixi.\n\n\nOptional Software\nServices can be enabled when the workspace is created on the New Workspace form:\n\n\n\nService\nVersion\nDescription\n\n\n\n\nRStudio Server\nv2026.08.2\nRun RStudio in the browser\n\n\nVS Code Web\n—\nRun VS Code in the browser\n\n\nVS Code Desktop (Server)\n—\nConnect to the workspace using local VS Code"
+  },
+  {
+    "objectID": "coder-workspaces.html#workspace-lifecycle",
+    "href": "coder-workspaces.html#workspace-lifecycle",
+    "title": "Coder Workspaces: Overview",
+    "section": "Workspace Lifecycle",
+    "text": "Workspace Lifecycle\n\nWorkspaces shut down (stop) after four hours of inactivity.\nYou can manually stop a workspace by clicking the “Stop” button in Coder.\nTo start a stopped workspace, click the workspace’s “Start” button. It may take a couple of minutes to resume.\nDeleting a workspace deletes all files on the workspace!\nAll workspaces will be deleted at the end of each academic quarter."
+  },
+  {
+    "objectID": "coder-workspaces.html#policies",
+    "href": "coder-workspaces.html#policies",
+    "title": "Coder Workspaces: Overview",
+    "section": "Policies",
+    "text": "Policies\n\n  !\n  \n    Backup Your Data\n    Data is not backed up; users are responsible for their own backups. Please use GitHub, Google Drive (via Rclone), or download important files regularly.\n  \n\n\nBackup your data: Data is not backed up; users are responsible for their own backups.\nDeletion: All workspaces are automatically deleted at the end of each quarter.\nLimits: Users may create and use only one workspace at a time. Multiple active workspaces may be deleted without notice.\nMaintenance: Workspaces may be inaccessible during scheduled maintenance windows (announced via email).\nInactivity: Workspaces stop automatically after four hours of inactivity to conserve resources. They can be resumed by clicking the “Start” button.\nSoftware Installation: Users may install additional software using standard package managers.\nAccess by Staff: Workspaces may be accessed by staff in the Library or LSIT. Confidential or sensitive information should not be stored.\n\n\n  \n    Previous\n    Home\n  \n  \n    Next\n    Getting Started Guide"
+  },
+  {
+    "objectID": "faq.html",
+    "href": "faq.html",
+    "title": "Frequently Asked Questions",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗\n  \n\n\n  \n    \n      \n    \n  \n\n\n\n\n\n\n  \n    \n      Cloud Services\n      /\n      FAQ\n    \n    \n      \n        \n          \n          Help Center\n        \n        Frequently Asked Questions\n        \n          Everything you need to know about Coder workspaces, hardware, policies, file transfers, and the AI Gateway.\n        \n      \n    \n    \n      \n      Search frequently asked questions\n      \n      \n        Clear\n      \n    \n  \n\n\n\n  \n\n  \n    \n      \n        Category\n        Accounts & Access\n      \n    \n    \n      \n        \n          \n            Who can use DREAM Lab Cloud Services?\n            \n          \n        \n        \n          Anyone with an active UCSB NetID (students, faculty, and staff) can create and use a Coder workspace for coursework, research, and data science projects.\n        \n      \n      \n        \n          \n            How do I sign in to Coder?\n            \n          \n        \n        \n          Visit coder.dreamlab.ucsb.edu, click 'UCSB Login', and authenticate using your UCSB Single Sign-On credentials via Google.\n        \n      \n      \n        \n          \n            How long does a workspace last?\n            \n          \n        \n        \n          Workspaces are provided for the duration of the academic quarter. At the end of each quarter, all workspaces are automatically deleted. Be sure to export your code and files before the end of the quarter.\n        \n      \n    \n  \n\n  \n    \n      \n        Category\n        Workspaces & Hardware\n      \n    \n    \n      \n        \n          \n            What hardware resources does each workspace receive?\n            \n          \n        \n        \n          Each workspace runs as an isolated virtual machine configured with 4 vCPUs, 16 GiB of RAM, a 64 GB persistent User Data Disk, and a 15 GB OS Disk.\n        \n      \n      \n        \n          \n            Why did my workspace stop running?\n            \n          \n        \n        \n          Workspaces automatically shut down after four hours of inactivity to conserve shared campus compute resources. You can resume at any time by clicking the 'Start' button on the dashboard.\n        \n      \n      \n        \n          \n            How many workspaces can I have at once?\n            \n          \n        \n        \n          Users may create and use only one active workspace at a time. Multiple active workspaces per user may be deleted without prior notice.\n        \n      \n    \n  \n\n  \n    \n      \n        Category\n        Software & Environments\n      \n    \n    \n      \n        \n          \n            What software is preinstalled in Coder?\n            \n          \n        \n        \n          All workspaces come with Ubuntu 26.04 LTS, Docker 29.8, Pixi package manager, R 4.6.1, Git, GitHub CLI (gh), jq, and uv/uvx. You can also enable RStudio Server, JupyterLab, and VS Code during creation.\n        \n      \n      \n        \n          \n            Can I install additional packages and tools?\n            \n          \n        \n        \n          Yes. You have full sudo access to install system packages with 'sudo apt install &lt;package&gt;', Python environments with 'uv' or 'pixi', and R packages with 'install.packages()'. Packages in your home directory persist between stops and starts.\n        \n      \n      \n        \n          \n            Can I use desktop VS Code instead of the browser?\n            \n          \n        \n        \n          Yes! Enable 'Visual Studio Code (Desktop)' when creating your workspace. Install the Coder extension in local VS Code, log in to coder.dreamlab.ucsb.edu, and connect directly.\n        \n      \n    \n  \n\n  \n    \n      \n        Category\n        Data, Files & Backups\n      \n    \n    \n      \n        \n          \n            Are my files backed up automatically?\n            \n          \n        \n        \n          No! Coder workspaces are not backed up. Users are responsible for backing up their own work. We recommend pushing your code to GitHub, mounting Google Drive with Rclone, or downloading copies regularly.\n        \n      \n      \n        \n          \n            How do I upload and download files?\n            \n          \n        \n        \n          You can use the built-in web File Browser on your workspace dashboard, use Magic Wormhole (run 'uvx magic-wormhole send &lt;file&gt;'), or mount your Google Drive via Rclone.\n        \n      \n      \n        \n          \n            Will my files remain after I stop my workspace?\n            \n          \n        \n        \n          Yes. Stopping a workspace releases active compute resources but preserves all files in your home directory (~). However, permanently deleting a workspace destroys all files.\n        \n      \n    \n  \n\n  \n    \n      \n        Category\n        AI Gateway & Agents\n      \n    \n    \n      \n        \n          \n            What is the DREAM Lab AI Gateway?\n            \n          \n        \n        \n          An experimental service providing OpenAI-compatible API access to Google Gemini models (including gemini-4-argon and gemini-3.8-flash) hosted by campus cloud providers for coding assistants and research.\n        \n      \n      \n        \n          \n            Can I send sensitive research data to the AI Gateway?\n            \n          \n        \n        \n          No. The DREAM Lab AI Gateway is NOT approved for data classified as P3 or P4 under UC protection levels. Never send restricted or personally identifiable data.\n        \n      \n      \n        \n          \n            How do I use OpenCode with campus models?\n            \n          \n        \n        \n          OpenCode is preinstalled on your workspace. Run 'opencode', and use '/models' to select campus-hosted models through College IT (CIT) or the DREAM Lab AI Gateway.\n        \n      \n    \n  \n\n  \n    \n      \n        Category\n        Support & Troubleshooting\n      \n    \n    \n      \n        \n          \n            My workspace won't start or is stuck. What should I do?\n            \n          \n        \n        \n          Wait 2–3 minutes and refresh your browser. If it is still stuck, stop the workspace and click Start again. If problems persist, email dreamlab@library.ucsb.edu.\n        \n      \n      \n        \n          \n            Where can I get one-on-one help?\n            \n          \n        \n        \n          Email dreamlab@library.ucsb.edu, drop by the Library DREAM Lab, or join the UCSB Carpentry Slack for community and staff support.\n        \n      \n    \n  \n\n  \n    No matching questions\n    Try searching for different terms, or contact the team.\n    Clear search"
+  },
+  {
+    "objectID": "guides/ai-agents.html",
+    "href": "guides/ai-agents.html",
+    "title": "Using AI Coding Agents",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "guides/ai-agents.html#why-use-coder-for-ai-coding-agents",
+    "href": "guides/ai-agents.html#why-use-coder-for-ai-coding-agents",
+    "title": "Using AI Coding Agents",
+    "section": "Why Use Coder for AI Coding Agents?",
+    "text": "Why Use Coder for AI Coding Agents?\nCoder workspaces provide a relatively safe way to experiment with AI coding agents like OpenCode, Claude Code, or OpenAI Codex. These tools, which generate and also execute code, are powerful, but they come with significant risks such as prompt injection or unintended file modifications.\nBecause Coder workspaces are isolated virtual machines, the potential damage a rogue AI agent can cause is contained and cannot harm your personal laptop or campus network."
+  },
+  {
+    "objectID": "guides/ai-agents.html#opencode",
+    "href": "guides/ai-agents.html#opencode",
+    "title": "Using AI Coding Agents",
+    "section": "OpenCode",
+    "text": "OpenCode\nOpenCode is an open-source coding agent that works with a wide range of AI services and model providers. It is preinstalled on all Coder Workspaces.\nTo launch OpenCode, run opencode in your workspace terminal:\nopencode\n\n\n\nInteractive OpenCode command-line interface in Coder.\n\n\n\n  i\n  \n    Switching Models in OpenCode\n    Inside OpenCode, type /models to search and select a model from your preferred model provider."
+  },
+  {
+    "objectID": "guides/ai-agents.html#campus-ai-gateways",
+    "href": "guides/ai-agents.html#campus-ai-gateways",
+    "title": "Using AI Coding Agents",
+    "section": "Campus AI Gateways",
+    "text": "Campus AI Gateways\nBy default, OpenCode offers default cloud services. For data privacy and university compliance, we recommend routing requests through campus gateways:\n\n1. College IT (CIT) AI Gateway\nThe College IT AI Gateway provides on-premises Large Language Model access for UCSB staff and faculty; incidental student use is supported. All inference runs directly on CIT hardware, and prompts stay on campus.\nIn OpenCode, run /models and filter for “CIT”.\n\n\n2. DREAM Lab AI Gateway\nThe DREAM Lab AI Gateway provides access to Google Gemini models through an OpenAI-compatible endpoint.\nTo use it, generate a key at the API Key Manager (UCSB NetID login required).\nConfigure OpenCode using one of two methods:\n\nProvide the key in the DREAM Lab LLM API Key field when creating your workspace.\nOr export the environment variable manually before launching:\n\nexport DREAMLAB_LLM_KEY=sk-...\nopencode\nThen run /models inside OpenCode and filter for “DREAM Lab”:\n\n\n\nSelecting DREAM Lab models inside OpenCode."
+  },
+  {
+    "objectID": "guides/index.html",
+    "href": "guides/index.html",
+    "title": "Guides & Tutorials",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗\n  \n\n\n  \n    \n      \n    \n  \n\n\n\n\n\n\n  \n    \n      Cloud Services\n      /\n      Guides\n    \n\n    \n      \n        Documentation\n        Guides & Tutorials\n        \n          Practical walkthroughs for getting the most out of DREAM Lab Cloud Services, from setting up RStudio to agentic coding.\n        \n      \n      \n    \n  \n\n\n\n  \n    \n      \n        \n          \n            \n            \n            \n          \n        \n        \n          Core Guide\n          Getting Started with Coder Workspaces\n          \n            Step-by-step walkthrough for creating your first workspace, logging in via UCSB SSO, and connecting with browser tools or local VS Code.\n          \n          \n            Read Guide\n            →\n          \n        \n      \n\n      \n        \n          \n            \n            \n            \n          \n        \n        \n          Tutorial\n          Transferring Files to/from Your Workspace\n          \n            Learn how to upload and download data using Coder's Web File Browser, Magic Wormhole, or Google Drive integration with Rclone.\n          \n          \n            Read Guide\n            →\n          \n        \n      \n\n      \n        \n          \n            \n            \n            \n          \n        \n        \n          IDE Guide\n          RStudio Server\n          \n            Run RStudio Server directly in your web browser for statistics, tidyverse analysis, and reproducible research projects.\n          \n          \n            Read Guide\n            →\n          \n        \n      \n\n      \n        \n          \n            \n            \n            \n          \n        \n        \n          Notebook Guide\n          Marimo Notebooks\n          \n            Build reactive Python notebooks stored as pure code, running in the background with tmux and integrated AI assistant chat.\n          \n          \n            Read Guide\n            →\n          \n        \n      \n\n      \n        \n          \n            \n            \n          \n        \n        \n          AI Guide\n          Using AI Coding Agents\n          \n            Run OpenCode safely in an isolated VM connected to on-campus CIT or DREAM Lab AI Gateway models.\n          \n          \n            Read Guide\n            →\n          \n        \n      \n\n      \n        \n          \n            \n            \n          \n        \n        \n          Integration\n          UCSB AI Commons API with OpenCode & Continue\n          \n            Configure OpenAI-compatible API credentials from the campus AI Commons for OpenCode and Continue in VS Code or Positron.\n          \n          \n            Read Guide\n            →"
+  },
+  {
+    "objectID": "guides/marimo.html",
+    "href": "guides/marimo.html",
+    "title": "Marimo Notebooks",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "guides/marimo.html#overview",
+    "href": "guides/marimo.html#overview",
+    "title": "Marimo Notebooks",
+    "section": "Overview",
+    "text": "Overview\nMarimo is a modern Python notebook tool. Unlike Jupyter, Marimo notebooks are stored as plain Python files and automatically re-run dependent cells when a cell changes. Marimo has integrated AI chat and agent tools that can be configured to use models through the DREAM Lab AI Gateway."
+  },
+  {
+    "objectID": "guides/marimo.html#creating-the-workspace-installing-marimo",
+    "href": "guides/marimo.html#creating-the-workspace-installing-marimo",
+    "title": "Marimo Notebooks",
+    "section": "Creating the Workspace & Installing Marimo",
+    "text": "Creating the Workspace & Installing Marimo\nCreate a standard workspace at coder.dreamlab.ucsb.edu. A default workspace is sufficient (no extra optional software required).\nOnce booted, open a Terminal from the dashboard and run:\n# Create a project folder and set it as your working directory\nmkdir my-project\ncd my-project\n\n# Create a Python virtual environment with uv\nuv venv\n\n# Install marimo in the environment\nuv pip install marimo\n\n# Run the marimo server\nuv run marimo edit --no-token --headless"
+  },
+  {
+    "objectID": "guides/marimo.html#running-marimo-in-the-background-with-tmux",
+    "href": "guides/marimo.html#running-marimo-in-the-background-with-tmux",
+    "title": "Marimo Notebooks",
+    "section": "Running Marimo in the Background with tmux",
+    "text": "Running Marimo in the Background with tmux\nTo keep Marimo running after closing your terminal window, use tmux:\n# Run in a persistent tmux session\ncd ~/my-project\ntmux new-session -d -s marimo 'uv run marimo edit --no-token --headless'\nTo stop the background server at any time:\ntmux kill-session -t marimo\n\nAccessing the Marimo Interface\nWith Marimo running, access the interface through the Ports menu on your workspace dashboard:\n\n\n\nClick the port associated with the Marimo server.\n\n\n\n\n\nCreate a new reactive notebook directly in your project folder."
+  },
+  {
+    "objectID": "guides/marimo.html#configuring-chat-and-ai-agents",
+    "href": "guides/marimo.html#configuring-chat-and-ai-agents",
+    "title": "Marimo Notebooks",
+    "section": "Configuring Chat and AI Agents",
+    "text": "Configuring Chat and AI Agents\nMarimo features integrated AI code generation and assistant chat. You can connect it to models through the DREAM Lab AI Gateway using your personal API key.\n\n1. Install AI Dependencies\nOpen User Settings (gear icon in the top right). Under Optional Dependencies, ensure AI features are installed, or click Install with uv.\n\n\n2. Add a Custom AI Provider\nUnder the AI panel, go to AI Providers and click Add Provider:\n\nProvider name: litellm_proxy\nBase URL: https://litellm.dreamlab.ucsb.edu\nAPI key: your personal AI Gateway key\n\n\n\n3. Add a Model\nIn the AI Models tab, click + Add Model. Choose litellm_proxy as the provider, enter gemini-3-flash-preview, and click Add.\n\n\n\nAdd a custom model from the litellm_proxy provider.\n\n\n\n\n4. Configure AI Features to Use the Model\nIn the AI Features tab, set Provider to custom and choose your model for Autocomplete, Chat, and Edit models.\n\n\n\nConfigure autocomplete and assistant models.\n\n\n\n\n5. Confirm Chat Interface\nOpen the Chat and Agents UI from the notebook menu to begin prompting.\n\n\n\nMarimo integrated AI chat assistant."
+  },
+  {
+    "objectID": "guides/file-transfer.html",
+    "href": "guides/file-transfer.html",
+    "title": "Transferring files to/from your Workspace",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "guides/file-transfer.html#three-ways-to-transfer-files",
+    "href": "guides/file-transfer.html#three-ways-to-transfer-files",
+    "title": "Transferring files to/from your Workspace",
+    "section": "Three Ways to Transfer Files",
+    "text": "Three Ways to Transfer Files\nThere are several ways to upload and download files to a Coder Workspace:\n\nCoder’s built-in File Browser: The most straightforward visual option.\nMagic Wormhole: Fast and convenient for moving files or project folders between machines or workspaces.\nRclone: Connects your workspace directly to your UCSB Google Drive."
+  },
+  {
+    "objectID": "guides/file-transfer.html#coder-file-browser",
+    "href": "guides/file-transfer.html#coder-file-browser",
+    "title": "Transferring files to/from your Workspace",
+    "section": "Coder File Browser",
+    "text": "Coder File Browser\nThe most convenient way to transfer files to/from a Coder Workspace is to use the built-in File Browser, accessible directly from the workspace dashboard.\n\n\n\nClicking the File Browser button opens a web management interface in a new window.\n\n\nClicking the File Browser button from the workspace dashboard opens the File Browser in a new tab or window. (Ensure popups are enabled in your browser settings).\n\n\n\nFile Browser interface for uploading, downloading, and editing files."
+  },
+  {
+    "objectID": "guides/file-transfer.html#magic-wormhole",
+    "href": "guides/file-transfer.html#magic-wormhole",
+    "title": "Transferring files to/from your Workspace",
+    "section": "Magic Wormhole",
+    "text": "Magic Wormhole\nMagic Wormhole is a command-line utility that makes it easy to send files and directories directly between two machines using a short, one-time code. No accounts, cloud servers, or SSH keys required — just run a command on each machine and the transfer happens over an end-to-end encrypted channel.\nYou can use Magic Wormhole without installation by running it with uvx, which executes Python tools in temporary environments. uvx is installed on all Coder Workspaces by default.\n\nSending a file or directory:\nuvx magic-wormhole send ./myfile.txt\n# or for a directory:\nuvx magic-wormhole send ./my-project\nMagic Wormhole will print a short one-time code such as 7-guitarist-revenge. Use that code on the receiving machine:\n\n\nReceiving a file or directory:\nuvx magic-wormhole receive 7-guitarist-revenge\n\n  i\n  \n    Single-Use Codes\n    The code is single-use and expires as soon as the transfer completes or is cancelled. This is a quick and secure way to migrate projects between Coder workspaces!"
+  },
+  {
+    "objectID": "guides/file-transfer.html#rclone-connecting-to-google-drive",
+    "href": "guides/file-transfer.html#rclone-connecting-to-google-drive",
+    "title": "Transferring files to/from your Workspace",
+    "section": "Rclone: Connecting to Google Drive",
+    "text": "Rclone: Connecting to Google Drive\nRclone is a powerful file transfer tool that can mount your Google Drive to a local directory (such as ~/gdrive) in your workspace.\n\n  ℹ\n  \n    Desktop VS Code Required for Auth\n    Initial authorization requires connecting to your workspace using the VS Code Desktop application so that browser authorization tokens can be forwarded to Rclone. Once configured, VS Code Desktop is no longer needed.\n  \n\n\nConnect to your workspace using desktop VS Code (click the VS Code Desktop icon on the dashboard).\nIn VS Code, open a Terminal (View → Terminal or `Ctrl+``).\nVerify Rclone is installed, or install it:\nsudo apt update && sudo apt install rclone\nAuthorize read-only access to your Google Drive:\nrclone config create gdrive drive scopes drive.readonly\n(For full read-write permissions, omit scopes drive.readonly).\nA web browser tab will open. Grant Rclone permission to access your Google Drive. Once finished, return to the VS Code terminal.\nCreate a mount point folder:\nmkdir ~/gdrive\nMount Google Drive in the background:\nrclone mount gdrive: ~/gdrive --daemon\nConfirm that you can view files in your Drive:\nls ~/gdrive\n\nTo disconnect your Google Drive folder when done, run:\numount ~/gdrive\nIf umount reports a busy device, ensure no files are open and your terminal is not currently inside the ~/gdrive directory."
+  },
+  {
+    "objectID": "guides/getting-started.html",
+    "href": "guides/getting-started.html",
+    "title": "Getting Started with Coder Workspaces",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "guides/getting-started.html#what-to-expect",
+    "href": "guides/getting-started.html#what-to-expect",
+    "title": "Getting Started with Coder Workspaces",
+    "section": "What to expect",
+    "text": "What to expect\nAnyone with an active UCSB NetID can create an isolated cloud workspace running Ubuntu Linux with data science tools like Python, R, Docker, and Pixi pre-configured.\n\n  Log in with UCSB Google Single Sign-On\n  Boot an environment in 2-3 minutes\n  Work in your browser or connect with your local desktop tools"
+  },
+  {
+    "objectID": "guides/getting-started.html#creating-a-workspace",
+    "href": "guides/getting-started.html#creating-a-workspace",
+    "title": "Getting Started with Coder Workspaces",
+    "section": "Creating a Workspace",
+    "text": "Creating a Workspace\n\nVisit https://coder.dreamlab.ucsb.edu.\nClick UCSB Login and log in using UCSB SSO (via Google).\nClick the New Workspace button.\nOn the New Workspace page:\n\nGive the workspace a name (required).\nCheck I understand the usage policies (required).\nSelect additional software and workspace options to enable (see below).\nClick Create Workspace.\n\nIt may take a couple of minutes for the workspace to boot.\n\n\nNew Workspace Options\nWhen creating a workspace, you can configure:\n\nRStudio: Enables the RStudio Server system service on port 8787.\nJupyterLab: Installs JupyterLab and commonly used packages (pip, numpy, pandas, matplotlib, ipython, and jupyter-ai) into a global Pixi environment (coder-jupyter). Runs in the background on port 19999 with ~/workspace as the working directory.\nVisual Studio Code (Desktop): Configures the Coder agent to enable desktop VS Code support, surfacing direct connection buttons to launch remote sessions.\nVisual Studio Code (Web): Deploys the browser-based vscode-web service rooted at /home/coder/workspace.\nDREAM Lab LLM API Key: Injects your DREAM Lab AI Gateway key into the workspace as $DREAMLAB_LLM_KEY for automated OpenCode authentication."
+  },
+  {
+    "objectID": "guides/getting-started.html#connecting-to-your-workspace",
+    "href": "guides/getting-started.html#connecting-to-your-workspace",
+    "title": "Getting Started with Coder Workspaces",
+    "section": "Connecting to Your Workspace",
+    "text": "Connecting to Your Workspace\nOnce your workspace is created, you will be directed to the workspace dashboard. You can interact with your workspace directly through the browser or via software on your local machine.\n\n\n\nWorkspace dashboard with buttons for web-based IDEs and terminal.\n\n\n\nBrowser-Based Tools\n\nJupyterLab or RStudio: Web-based IDEs for data analysis in Python or R.\nFile Browser: For navigating your workspace’s file system and transferring files.\nTerminal: A browser-based terminal that provides instant access to your workspace shell environment.\n\nTo use these, simply click the corresponding icon on your workspace’s dashboard page."
+  },
+  {
+    "objectID": "guides/getting-started.html#connecting-with-locally-installed-software",
+    "href": "guides/getting-started.html#connecting-with-locally-installed-software",
+    "title": "Getting Started with Coder Workspaces",
+    "section": "Connecting with Locally Installed Software",
+    "text": "Connecting with Locally Installed Software\nFor a more integrated development experience, connect your local editor or terminal to your Coder workspace.\n\nConnecting via Desktop VS Code\n\nEnsure you have the Visual Studio Code desktop application installed.\nInstall the official Coder extension from the VS Code Marketplace.\nOpen the Command Palette (Ctrl+Shift+P or Cmd+Shift+P on macOS) and run: Coder: Login\nEnter your Coder deployment URL: https://coder.dreamlab.ucsb.edu\nAfter logging in, browse your workspaces in the Coder view on the sidebar, or run Coder: Open Workspace.\n\n\n\nConnecting via Coder CLI\nThe Coder CLI allows authenticating and connecting to workspaces directly from your terminal.\nInstalling the Coder CLI (macOS / Linux):\ncurl -L https://coder.com/install.sh | sh\nFor Windows, download and run the installer executable from Coder’s GitHub Releases page.\nAuthenticate the CLI:\ncoder login https://coder.dreamlab.ucsb.edu\nFollow the prompts to complete authentication in your browser.\nConnecting via SSH:\ncoder ssh &lt;workspace-name&gt;\n\n  i\n  \n    Persistence & Lifecycle\n    Files stored in your home directory persist when you stop and restart your workspace. Remember that workspaces auto-stop after 4 hours of inactivity and are deleted at the end of each academic quarter."
+  },
+  {
+    "objectID": "guides/rstudio.html",
+    "href": "guides/rstudio.html",
+    "title": "Getting Started with RStudio",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "guides/rstudio.html#overview",
+    "href": "guides/rstudio.html#overview",
+    "title": "Getting Started with RStudio",
+    "section": "Overview",
+    "text": "Overview\nRStudio is a powerful integrated development environment (IDE) for R programming. Coder workspaces allow you to run RStudio Server, which provides the full RStudio interface accessible securely through any modern web browser."
+  },
+  {
+    "objectID": "guides/rstudio.html#creating-a-workspace-with-rstudio",
+    "href": "guides/rstudio.html#creating-a-workspace-with-rstudio",
+    "title": "Getting Started with RStudio",
+    "section": "Creating a Workspace with RStudio",
+    "text": "Creating a Workspace with RStudio\n\n  ℹ\n  \n    Enable during creation\n    RStudio must be enabled when the workspace is created. It cannot be added to an existing workspace after creation.\n  \n\n\nNavigate to the New Workspace page at coder.dreamlab.ucsb.edu.\nComplete the required workspace name and policy checks.\nMake sure Include RStudio is set to Yes.\nClick Create Workspace.\n\nOnce booted, launch RStudio in a new browser tab with the RStudio button on the dashboard:\n\n\n\nCoder workspace dashboard showing RStudio button on port 8787."
+  },
+  {
+    "objectID": "guides/rstudio.html#setting-up-an-rstudio-project",
+    "href": "guides/rstudio.html#setting-up-an-rstudio-project",
+    "title": "Getting Started with RStudio",
+    "section": "Setting Up an RStudio Project",
+    "text": "Setting Up an RStudio Project\nRStudio Projects organize your scripts, datasets, and working directories cleanly:\n\nIn RStudio, click File → New Project.\nSelect New Directory.\nChoose New Project.\nEnter a directory name (e.g., my-project) and keep the parent directory set to ~.\nClick Create Project.\n\nRStudio generates an .Rproj file storing project-specific settings so you can easily resume work."
+  },
+  {
+    "objectID": "guides/rstudio.html#installing-packages-git-setup",
+    "href": "guides/rstudio.html#installing-packages-git-setup",
+    "title": "Getting Started with RStudio",
+    "section": "Installing Packages & Git Setup",
+    "text": "Installing Packages & Git Setup\nInstall packages in your cloud RStudio session just like a local installation:\n# Install from CRAN\ninstall.packages(\"tidyverse\")\ninstall.packages(\"ggplot2\")\n\n# Install from GitHub\ninstall.packages(\"devtools\")\ndevtools::install_github(\"username/repository\")\n\n  i\n  \n    Isolated Package Storage\n    Packages installed in your workspace persist across sessions within your persistent home directory, isolated from other workspaces to ensure reproducibility.\n  \n\n\nSetting Up Git\nOpen the Terminal in RStudio (Tools → Terminal → New Terminal) and configure your identity:\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"your.email@example.com\"\n\n\nAdditional Resources\n\nRStudio User Guide ↗ — Comprehensive documentation.\nRStudio Cheat Sheets ↗ — Quick syntax and workflow reference.\nR for Data Science (2e) ↗ — Definitive guide to modern data science in R.\nPosit Community ↗ — Knowledge sharing and Q&A."
+  },
+  {
+    "objectID": "guides/ai-commons.html",
+    "href": "guides/ai-commons.html",
+    "title": "Using the UCSB AI Commons API",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "guides/ai-commons.html#overview-prerequisites",
+    "href": "guides/ai-commons.html#overview-prerequisites",
+    "title": "Using the UCSB AI Commons API",
+    "section": "Overview & Prerequisites",
+    "text": "Overview & Prerequisites\nThis walkthrough explains how to configure the UCSB AI Commons API for two tools:\n\nOpenCode (terminal-based coding agent)\nContinue (VS Code and Positron extension)\n\n\n  !\n  \n    Requesting API Access\n    The API is an add-on feature to AI Commons. To request access, submit your request in Service-Now. Once approved, you will see API Key in your My Menu portal list.\n  \n\n\n\n\nAI Commons portal navigation with API Key option.\n\n\n\n\n\nAI Commons API dashboard interface.\n\n\n\nQuerying Model Names\nTo list the models enabled on your account, run:\ncurl -s https://YOUR-AI-COMMONS-ENDPOINT/v1/models \\\n  -H \"Authorization: Bearer YOUR_AI_COMMONS_API_KEY\" \\\n  | python -c \"import sys, json; [print(m['id']) for m in json.load(sys.stdin)['data']]\""
+  },
+  {
+    "objectID": "guides/ai-commons.html#configuring-opencode",
+    "href": "guides/ai-commons.html#configuring-opencode",
+    "title": "Using the UCSB AI Commons API",
+    "section": "Configuring OpenCode",
+    "text": "Configuring OpenCode\nOpenCode is preinstalled in Coder workspaces, or can be installed locally following instructions on opencode.ai.\n\nConfiguration File\nAdd the custom provider to your global configuration file at ~/.config/opencode/opencode.json:\n{\n  \"$schema\": \"https://opencode.ai/config.json\",\n  \"provider\": {\n    \"my-custom-provider\": {\n      \"npm\": \"@ai-sdk/openai-compatible\",\n      \"name\": \"AI Commons\",\n      \"options\": {\n        \"baseURL\": \"https://YOUR-AI-COMMONS-ENDPOINT/v1\",\n        \"apiKey\": \"YOUR_AI_COMMONS_API_KEY\"\n      },\n      \"models\": {\n        \"claude-v4.5-haiku\": {\n          \"name\": \"claude-v4.5-haiku\"\n        },\n        \"claude-v4.6-sonnet\": {\n          \"name\": \"claude-v4.6-sonnet\"\n        },\n        \"claude-v4.6-opus\": {\n          \"name\": \"claude-v4.6-opus\"\n        }\n      }\n    }\n  }\n}\nReplace https://YOUR-AI-COMMONS-ENDPOINT/v1 and YOUR_AI_COMMONS_API_KEY with your real credentials.\nLaunch OpenCode and select your model with /models:\nopencode"
+  },
+  {
+    "objectID": "guides/ai-commons.html#configuring-continue-vs-code-positron",
+    "href": "guides/ai-commons.html#configuring-continue-vs-code-positron",
+    "title": "Using the UCSB AI Commons API",
+    "section": "Configuring Continue (VS Code / Positron)",
+    "text": "Configuring Continue (VS Code / Positron)\n\nSearch for and install Continue from the VS Code Extensions Marketplace.\nOpen the Continue panel, click the gear icon (Settings), select Configs, and open Main Config (~/.continue/config.yaml).\n\n\n\n\nOpening Main Config in Continue extension.\n\n\n\nConfiguration YAML\nname: UCSB AI Commons\nversion: 1.0.0\nschema: v1\n\nmodels:\n  - name: Claude Sonnet 4.6\n    provider: openai\n    model: claude-v4.6-sonnet\n    apiBase: https://YOUR-AI-COMMONS-ENDPOINT/v1\n    apiKey: YOUR_AI_COMMONS_API_KEY\n    roles:\n      - chat\n      - edit\n    capabilities:\n      - tool_use\n\n  - name: Claude Opus 4.6\n    provider: openai\n    model: claude-v4.6-opus\n    apiBase: https://YOUR-AI-COMMONS-ENDPOINT/v1\n    apiKey: YOUR_AI_COMMONS_API_KEY\n    roles:\n      - chat\n      - edit\n    capabilities:\n      - tool_use\n\n  - name: Claude Haiku 4.5\n    provider: openai\n    model: claude-v4.5-haiku\n    apiBase: https://YOUR-AI-COMMONS-ENDPOINT/v1\n    apiKey: YOUR_AI_COMMONS_API_KEY\n    roles:\n      - chat\n      - edit\n    capabilities:\n      - tool_use\nReplace the endpoint URL and API key with your values, then open the Continue panel to start coding with your models."
+  },
+  {
+    "objectID": "guides/ai-commons.html#authentication-troubleshooting",
+    "href": "guides/ai-commons.html#authentication-troubleshooting",
+    "title": "Using the UCSB AI Commons API",
+    "section": "Authentication Troubleshooting",
+    "text": "Authentication Troubleshooting\n\nVerify your Base URL is correct.\nConfirm /v1 is not duplicated (e.g. avoid /v1/v1).\nConfirm the API key is active in the AI Commons portal.\nEnsure no leading or trailing whitespace was copied."
+  },
+  {
+    "objectID": "ai-gateway.html",
+    "href": "ai-gateway.html",
+    "title": "DREAM Lab AI Gateway",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗"
+  },
+  {
+    "objectID": "ai-gateway.html#overview",
+    "href": "ai-gateway.html#overview",
+    "title": "DREAM Lab AI Gateway",
+    "section": "Overview",
+    "text": "Overview\nDREAM Lab’s AI gateway service provides API access to Large Language Models (LLMs) hosted by campus cloud providers (currently, Google). It can be used in conjunction with a coding agent (such as OpenCode or Continue) or to build custom research AI workflows.\nNote: The gateway does not provide a web chat UI. The service is primarily oriented toward DREAM Lab workshop attendees, researchers learning AI-assisted coding, and Library staff."
+  },
+  {
+    "objectID": "ai-gateway.html#endpoint-models",
+    "href": "ai-gateway.html#endpoint-models",
+    "title": "DREAM Lab AI Gateway",
+    "section": "API Endpoint & Supported Models",
+    "text": "API Endpoint & Supported Models\nThe OpenAI-compatible API endpoint for the gateway service is:\nhttps://litellm.dreamlab.ucsb.edu/v1\n\nSupported Google Gemini Models\n\n\n\n\n\n\n\n\nModel Name\nBest For\nDescription\n\n\n\n\ngemini-4-argon\nComplex reasoning & coding\nFrontier model for challenging reasoning and software architecture tasks.\n\n\ngemini-3.8-flash\nAgentic coding\nFast, highly capable model tuned for autonomous agent execution loops.\n\n\ngemini-3.5-flash-lite\nLow-cost inference\nHigh-throughput model ideal for text processing and lightweight tasks.\n\n\ngemini-embedding-2\nEmbeddings\nMultimodal embedding model for vector search and retrieval."
+  },
+  {
+    "objectID": "ai-gateway.html#api-keys",
+    "href": "ai-gateway.html#api-keys",
+    "title": "DREAM Lab AI Gateway",
+    "section": "Creating an API Key",
+    "text": "Creating an API Key\nAnyone with a valid UCSB NetID can create a key through the API Key Manager ↗.\n\n  ℹ\n  \n    Key Policies & Restrictions\n    \n      \n        You may have only one active key at a time.\n        If you regenerate a new key, your previous key is automatically disabled.\n        Keys expire automatically after three months.\n        Your key has an allocated budget that resets periodically. Use the key manager to view your remaining balance.\n        Usage reflects real API expenses; requests to larger models consume quota faster than lighter models."
+  },
+  {
+    "objectID": "ai-gateway.html#python-example",
+    "href": "ai-gateway.html#python-example",
+    "title": "DREAM Lab AI Gateway",
+    "section": "Using the Gateway with Python",
+    "text": "Using the Gateway with Python\nBecause the gateway exposes an OpenAI-compatible endpoint, you can interact with models using the standard openai Python library:\nmkdir llm-example\ncd llm-example\nuv venv\nsource .venv/bin/activate\nuv pip install openai\nCreate a script (main.py) specifying the gateway base URL:\nimport os\nfrom openai import OpenAI\n\n# In a Coder Workspace with a configured key, DREAMLAB_LLM_KEY is set automatically\napi_key = os.environ.get(\"DREAMLAB_LLM_KEY\", \"your-api-key-here\")\n\nclient = OpenAI(\n    api_key=api_key,\n    base_url=\"https://litellm.dreamlab.ucsb.edu/v1\"\n)\n\nresponse = client.chat.completions.create(\n    model=\"gemini-3.5-flash-lite\",\n    messages=[\n        {\"role\": \"user\", \"content\": \"Explain the difference between a list and a tuple in Python.\"}\n    ]\n)\n\nprint(response.choices[0].message.content)\nRun the script:\npython main.py"
+  },
+  {
+    "objectID": "ai-gateway.html#privacy-security",
+    "href": "ai-gateway.html#privacy-security",
+    "title": "DREAM Lab AI Gateway",
+    "section": "Data Privacy & Security",
+    "text": "Data Privacy & Security\n\n  !\n  \n    Data Classification Restriction\n    The DREAM Lab AI Gateway IS NOT approved for use with data classified as P3 or P4 under the UC data protection levels.\n  \n\nThe service routes requests through Google’s Gemini Enterprise Agent Platform: Google will not use campus data to train or fine-tune AI models. For full compliance details, see UC Protection Levels and Google’s zero data retention agreements."
+  },
+  {
+    "objectID": "ai-gateway.html#responsible-use",
+    "href": "ai-gateway.html#responsible-use",
+    "title": "DREAM Lab AI Gateway",
+    "section": "Responsible Use",
+    "text": "Responsible Use\nYou are responsible for how you use this service and anything it generates. Verify outputs before relying on them in research. Do not use AI services as a substitute for medical, legal, or financial advice.\n“If an action wasn’t permissible before AI, it isn’t permissible with AI.” — UC AI Council\n\nCampus Policies\n\nUC Responsible AI Principles ↗\nUCSB Guidelines for AI Use ↗\n\n\n  \n    Previous\n    All Guides\n  \n  \n    Next\n    Frequently Asked Questions"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "DREAM Lab Cloud Services",
+    "section": "",
+    "text": "University of California, Santa Barbara\n    Launch Coder ↗\n  \n\n\n  \n    \n      \n    \n  \n\n\n\n\n\n\n  \n    \n      \n        \n        UCSB Library\n      \n      \n        DREAM Lab\n        Cloud Services\n      \n      \n        Cloud computing services for research and teaching at UC Santa Barbara. Managed by the\n        UCSB Library DREAM Lab\n        using computing resources provided by the\n        College of Letters and Science IT.\n      \n      \n        \n          Launch a Workspace ↗\n        \n        \n          Getting Started Guide\n        \n      \n    \n    \n      \n        \n      \n    \n  \n\n\n\n  \n    \n      \n        \n          \n          Cloud services\n        \n        What we offer\n      \n      \n        Flexible tools supported by people who understand research, teaching, and creative practice.\n      \n    \n\n    \n      \n        \n          \n            \n            \n            \n          \n        \n        \n          Coder Workspaces\n          \n            On-demand virtual machines with commonly used data science tools pre-installed. Anyone with a UCSB NetID can create a workspace for the duration of the academic quarter.\n          \n          \n            Explore Coder Workspaces\n            →\n          \n        \n      \n\n      \n        \n          \n            \n            \n          \n        \n        \n          Experimental\n          AI Gateway\n          \n            API access to Large Language Models (LLMs) hosted by campus cloud providers through an OpenAI-compatible endpoint for coding agents and research workflows.\n          \n          \n            Learn about the AI Gateway\n            →\n          \n        \n      \n    \n  \n\n\n\n  \n    \n      \n        \n          \n          A simple start\n        \n        Getting started in 3 steps\n      \n      \n        Read the full guide\n        →\n      \n    \n\n    \n      \n        01\n        \n          \n          Log in with your UCSB NetID\n          \n            Visit coder.dreamlab.ucsb.edu and log in securely using UCSB Single Sign-On via Google.\n          \n        \n      \n      \n        02\n        \n          \n          Create a workspace\n          \n            Choose a name, accept usage policies, and enable optional tools like RStudio, JupyterLab, or VS Code.\n          \n        \n      \n      \n        03\n        \n          \n          Open in browser or local IDE\n          \n            Work in your browser via VS Code Web, RStudio, or Terminal, or connect directly from desktop VS Code or SSH.\n          \n        \n      \n    \n  \n\n\n\n  \n    \n      \n        \n        Support\n      \n      Need help?\n      \n        Find answers in our documentation or talk through your project with a DREAM Lab specialist.\n      \n    \n    \n      \n        Browse common questions\n        Visit the FAQ\n      \n      \n        Ask questions in real time\n        UCSB Carpentry Slack ↗\n      \n      \n        Email the team directly\n        dreamlab@library.ucsb.edu\n      \n      \n        Workshops & consultations\n        About DREAM Lab ↗"
+  }
+]
