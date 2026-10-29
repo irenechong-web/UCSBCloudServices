@@ -69,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 6. On documentation/guide pages with .docs-sidebar, assemble the 3-column .docs-layout
+  if (quartoContent) {
+    quartoContent.classList.remove("page-columns", "page-rows-contents");
+  }
   var docsSidebar = document.querySelector(".docs-sidebar");
   var marginSidebar = document.getElementById("quarto-margin-sidebar");
   if (docsSidebar && mainContent && quartoContent) {
@@ -94,8 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Build clean 3rd column .on-this-page from h2 sections in mainContent
     var onThisPage = mainContent.querySelector(".on-this-page");
     if (!onThisPage) {
-      onThisPage = document.createElement("aside");
+      onThisPage = document.createElement("div");
       onThisPage.className = "on-this-page";
+      onThisPage.setAttribute("role", "navigation");
+      onThisPage.setAttribute("aria-label", "On this page");
       var titleP = document.createElement("p");
       titleP.textContent = "On this page";
       onThisPage.appendChild(titleP);

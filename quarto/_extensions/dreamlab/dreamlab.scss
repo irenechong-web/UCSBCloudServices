@@ -284,23 +284,68 @@ footer.footer {
     }
   }
 
-  // Search button in navbar
-  #quarto-search {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    order: 10;
+  // Search bar on the far right of the navbar
+  #quarto-search,
+  #quarto-search.type-overlay {
+    display: flex !important;
+    align-items: center !important;
+    margin-left: auto !important;
+    order: 1000 !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+
+    .aa-Autocomplete {
+      width: auto !important;
+    }
 
     .aa-DetachedSearchButton {
-      color: var(--secondary);
-      border: 1px solid var(--gray);
-      border-radius: 3px;
-      padding: 4px 10px;
-      height: 36px;
+      width: auto !important;
+      min-width: 190px;
+      height: 38px !important;
+      padding: 0 14px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: flex-start !important;
+      gap: 8px !important;
+      background: var(--gray-tint) !important;
+      border: 1px solid var(--gray) !important;
+      border-radius: 4px !important;
+      color: var(--secondary) !important;
+      font-family: var(--font-sans) !important;
+      font-size: 0.85rem !important;
+      font-weight: 600 !important;
 
       &:hover {
-        border-color: var(--navy);
-        color: var(--navy);
+        border-color: var(--navy) !important;
+        color: var(--navy) !important;
+        background: var(--white) !important;
+      }
+
+      .aa-DetachedSearchButtonIcon {
+        width: 18px !important;
+        height: 18px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: var(--navy) !important;
+        margin: 0 !important;
+      }
+
+      .aa-DetachedSearchButtonPlaceholder {
+        display: inline-block !important;
+        visibility: visible !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        clip: auto !important;
+        overflow: visible !important;
+        white-space: nowrap !important;
+        color: var(--secondary) !important;
+
+        &::after {
+          content: "Search...";
+        }
       }
     }
   }
@@ -958,13 +1003,42 @@ body.page-fullbleed {
 }
 
 // 3-Column Documentation Layout
+// Reset Quarto's named grid-column / grid-row rules (.page-columns .content and aside:not(.sidebar))
+// which otherwise place main.content and aside elements onto non-existent named grid lines.
+.page-columns > *,
+.page-columns .content,
+main.content,
+aside:not(.footnotes):not(.sidebar),
+div.aside,
+.doc-callout {
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
 .docs-layout {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 720px) 150px;
-  gap: 70px;
-  align-items: start;
+  display: grid !important;
+  grid-template-columns: 220px minmax(0, 720px) 150px !important;
+  gap: 70px !important;
+  align-items: start !important;
   padding-top: 72px;
   padding-bottom: 112px;
+
+  > .docs-sidebar {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 !important;
+  }
+
+  > main.content,
+  > .doc-content {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 !important;
+  }
+
+  > .on-this-page,
+  > #quarto-margin-sidebar {
+    grid-column: 3 / 4 !important;
+    grid-row: 1 !important;
+  }
 }
 
 .docs-sidebar {
@@ -2023,8 +2097,8 @@ div.callout {
 // ==========================================================================
 @media (max-width: 1080px) {
   .docs-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
-    gap: 55px;
+    grid-template-columns: 210px minmax(0, 1fr) !important;
+    gap: 55px !important;
   }
 
   .on-this-page,
@@ -2075,10 +2149,21 @@ div.callout {
   }
 
   .docs-layout {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
     padding-top: 45px;
     padding-bottom: 78px;
+
+    > .docs-sidebar {
+      grid-column: 1 !important;
+      grid-row: 1 !important;
+    }
+
+    > main.content,
+    > .doc-content {
+      grid-column: 1 !important;
+      grid-row: 2 !important;
+    }
   }
 
   .docs-sidebar {
