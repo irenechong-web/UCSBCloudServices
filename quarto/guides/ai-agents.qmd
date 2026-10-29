@@ -1,17 +1,65 @@
 ---
-# This guide demonstrates how to safely use autonomous coding agents like OpenCode in Coder.
 title: "Using AI Coding Agents"
 ---
 
-Experiment safely with autonomous and interactive coding agents like OpenCode inside isolated Coder virtual machines connected to UCSB AI Gateways.
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <a href="index.html">Guides</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Using AI Coding Agents</span>
+    </nav>
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">Guide</p>
+        <h1>Using AI Coding Agents</h1>
+        <p>
+          Experiment safely with autonomous and interactive coding agents like OpenCode inside isolated Coder virtual machines connected to UCSB AI Gateways.
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
+
+<div class="docs-sidebar">
+  <nav aria-label="Guides navigation">
+    <p class="docs-sidebar__title">All Guides</p>
+    <a href="getting-started.html"><span>01</span>Getting Started</a>
+    <a href="file-transfer.html"><span>02</span>Transferring Files</a>
+    <a href="rstudio.html"><span>03</span>RStudio Server</a>
+    <a href="marimo.html"><span>04</span>Marimo Notebooks</a>
+    <a href="ai-agents.html" class="is-current" aria-current="page"><span>05</span>Using AI Coding Agents</a>
+    <a href="ai-commons.html"><span>06</span>UCSB AI Commons API</a>
+  </nav>
+  <div class="sidebar-help">
+    <strong>AI Consultation</strong>
+    <p>
+      Schedule time with DREAM Lab specialists to design agentic workflows for research.
+    </p>
+  </div>
+</div>
+```
+
+::: {.doc-intro #overview}
+<p class="doc-kicker">Safe Experimentation</p>
 
 ## Why Use Coder for AI Coding Agents?
 
 Coder workspaces provide a relatively safe way to experiment with AI coding agents like [OpenCode](https://opencode.ai), Claude Code, or OpenAI Codex. These tools, which generate and also *execute* code, are powerful, but they come with significant risks such as prompt injection or unintended file modifications.
 
 Because Coder workspaces are isolated virtual machines, the potential damage a rogue AI agent can cause is contained and cannot harm your personal laptop or campus network.
+:::
 
----
+::: {.doc-step #opencode}
+::: {.doc-step__number}
+1
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Pre-Installed Tool</p>
 
 ## OpenCode
 
@@ -25,12 +73,24 @@ opencode
 
 ![Interactive OpenCode command-line interface in Coder.](../images/opencode.png)
 
-::: {.callout-tip}
-## Switching Models in OpenCode
-Inside OpenCode, type `/models` to search and select a model from your preferred model provider.
+```{=html}
+<div class="doc-callout doc-callout--tip">
+  <span class="doc-callout__icon" aria-hidden="true">i</span>
+  <div>
+    <strong>Switching Models in OpenCode</strong>
+    <div><p>Inside OpenCode, type <code>/models</code> to search and select a model from your preferred model provider.</p></div>
+  </div>
+</div>
+```
+:::
 :::
 
----
+::: {.doc-step #gateways}
+::: {.doc-step__number}
+2
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Recommended Model Providers</p>
 
 ## Campus AI Gateways
 
@@ -46,7 +106,7 @@ In OpenCode, run `/models` and filter for **"CIT"**.
 
 The [DREAM Lab AI Gateway](../ai-gateway.qmd) provides access to Google Gemini models through an OpenAI-compatible endpoint.
 
-To use it, generate a key at the [API Key Manager ↗](https://litellm.dreamlab.ucsb.edu/dreamlab-keys) (UCSB NetID login required).
+To use it, generate a key at the [API Key Manager](https://litellm.dreamlab.ucsb.edu/dreamlab-keys) (UCSB NetID login required).
 
 Configure OpenCode using one of two methods:
 
@@ -61,3 +121,18 @@ opencode
 Then run `/models` inside OpenCode and filter for **"DREAM Lab"**:
 
 ![Selecting DREAM Lab models inside OpenCode.](../images/opencode-dreamlab.png)
+:::
+:::
+
+```{=html}
+<nav class="doc-pagination" aria-label="Guide pagination">
+  <a href="marimo.html">
+    <span>Previous</span>
+    <strong>Marimo Notebooks</strong>
+  </a>
+  <a href="ai-commons.html" class="doc-pagination__next">
+    <span>Next</span>
+    <strong>UCSB AI Commons API</strong>
+  </a>
+</nav>
+```

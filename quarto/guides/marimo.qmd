@@ -1,17 +1,65 @@
 ---
-# This guide explains how to install and run Marimo reactive notebooks and configure AI assistants.
 title: "Marimo Notebooks"
 ---
 
-Build reactive, reproducible Python notebooks stored as pure Python code, with integrated AI assistants connected to the DREAM Lab AI Gateway.
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <a href="index.html">Guides</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Marimo Notebooks</span>
+    </nav>
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">Guide</p>
+        <h1>Marimo Notebooks</h1>
+        <p>
+          Build reactive, reproducible Python notebooks stored as pure Python code, with integrated AI assistants connected to the DREAM Lab AI Gateway.
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
+
+<div class="docs-sidebar">
+  <nav aria-label="Guides navigation">
+    <p class="docs-sidebar__title">All Guides</p>
+    <a href="getting-started.html"><span>01</span>Getting Started</a>
+    <a href="file-transfer.html"><span>02</span>Transferring Files</a>
+    <a href="rstudio.html"><span>03</span>RStudio Server</a>
+    <a href="marimo.html" class="is-current" aria-current="page"><span>04</span>Marimo Notebooks</a>
+    <a href="ai-agents.html"><span>05</span>Using AI Coding Agents</a>
+    <a href="ai-commons.html"><span>06</span>UCSB AI Commons API</a>
+  </nav>
+  <div class="sidebar-help">
+    <strong>Python Support</strong>
+    <p>
+      Need help installing libraries or setting up virtual environments? Contact DREAM Lab specialists.
+    </p>
+  </div>
+</div>
+```
+
+::: {.doc-intro #overview}
+<p class="doc-kicker">Reactive Python</p>
 
 ## Overview
 
 Marimo is a modern Python notebook tool. Unlike Jupyter, Marimo notebooks are stored as plain Python files and automatically re-run dependent cells when a cell changes. Marimo has integrated AI chat and agent tools that can be configured to use models through the [DREAM Lab AI Gateway](../ai-gateway.qmd).
+:::
 
----
+::: {.doc-step #install-marimo}
+::: {.doc-step__number}
+1
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Step 1</p>
 
-## Step 1: Creating the Workspace & Installing Marimo
+## Creating the Workspace & Installing Marimo
 
 Create a standard workspace at [coder.dreamlab.ucsb.edu](https://coder.dreamlab.ucsb.edu). A default workspace is sufficient (no extra optional software required).
 
@@ -31,10 +79,17 @@ uv pip install marimo
 # Run the marimo server
 uv run marimo edit --no-token --headless
 ```
+:::
+:::
 
----
+::: {.doc-step #background-tmux}
+::: {.doc-step__number}
+2
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Step 2</p>
 
-## Step 2: Running Marimo in the Background with tmux
+## Running Marimo in the Background with tmux
 
 To keep Marimo running after closing your terminal window, use `tmux`:
 
@@ -57,10 +112,17 @@ With Marimo running, access the interface through the **Ports** menu on your wor
 ![Click the port associated with the Marimo server.](../images/ports-menu.png)
 
 ![Create a new reactive notebook directly in your project folder.](../images/marimo-dashboard.png)
+:::
+:::
 
----
+::: {.doc-step #ai-configuration}
+::: {.doc-step__number}
+3
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Step 3</p>
 
-## Step 3: Configuring Chat and AI Agents
+## Configuring Chat and AI Agents
 
 Marimo features integrated AI code generation and assistant chat. You can connect it to models through the [DREAM Lab AI Gateway](../ai-gateway.qmd) using your personal API key.
 
@@ -93,3 +155,18 @@ In the **AI Features** tab, set Provider to `custom` and choose your model for *
 Open the **Chat and Agents** UI from the notebook menu to begin prompting.
 
 ![Marimo integrated AI chat assistant.](../images/marimo-chat.png)
+:::
+:::
+
+```{=html}
+<nav class="doc-pagination" aria-label="Guide pagination">
+  <a href="rstudio.html">
+    <span>Previous</span>
+    <strong>RStudio Server</strong>
+  </a>
+  <a href="ai-agents.html" class="doc-pagination__next">
+    <span>Next</span>
+    <strong>Using AI Coding Agents</strong>
+  </a>
+</nav>
+```

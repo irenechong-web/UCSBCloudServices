@@ -1,9 +1,51 @@
 ---
-# This guide details how to configure the UCSB AI Commons API for OpenCode and Continue in VS Code or Positron.
 title: "Using the UCSB AI Commons API"
 ---
 
-Configure the UCSB AI Commons OpenAI-compatible API for OpenCode (terminal agent) and Continue (VS Code & Positron extension).
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <a href="index.html">Guides</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">UCSB AI Commons API</span>
+    </nav>
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">Guide</p>
+        <h1>Using the UCSB AI Commons API</h1>
+        <p>
+          Configure the UCSB AI Commons OpenAI-compatible API for OpenCode (terminal agent) and Continue (VS Code &amp; Positron extension).
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
+
+<div class="docs-sidebar">
+  <nav aria-label="Guides navigation">
+    <p class="docs-sidebar__title">All Guides</p>
+    <a href="getting-started.html"><span>01</span>Getting Started</a>
+    <a href="file-transfer.html"><span>02</span>Transferring Files</a>
+    <a href="rstudio.html"><span>03</span>RStudio Server</a>
+    <a href="marimo.html"><span>04</span>Marimo Notebooks</a>
+    <a href="ai-agents.html"><span>05</span>Using AI Coding Agents</a>
+    <a href="ai-commons.html" class="is-current" aria-current="page"><span>06</span>UCSB AI Commons API</a>
+  </nav>
+  <div class="sidebar-help">
+    <strong>Campus AI Support</strong>
+    <p>
+      For ITS AI Commons access approvals, submit a request via UCSB Service-Now.
+    </p>
+  </div>
+</div>
+```
+
+::: {.doc-intro #overview}
+<p class="doc-kicker">Integration Guide</p>
 
 ## Overview & Prerequisites
 
@@ -12,10 +54,15 @@ This walkthrough explains how to configure the UCSB AI Commons API for two tools
 - **OpenCode** (terminal-based coding agent)
 - **Continue** (VS Code and Positron extension)
 
-::: {.callout-important}
-## Requesting API Access
-The API is an add-on feature to AI Commons. To request access, [submit your request in Service-Now](https://ucsb.service-now.com/it?id=sc_cat_item&sys_id=05a9143feba583101cfffdf2dad0cdec). Once approved, you will see **API Key** in your My Menu portal list.
-:::
+```{=html}
+<div class="doc-callout doc-callout--important">
+  <span class="doc-callout__icon" aria-hidden="true">!</span>
+  <div>
+    <strong>Requesting API Access</strong>
+    <div><p>The API is an add-on feature to AI Commons. To request access, <a href="https://ucsb.service-now.com/it?id=sc_cat_item&amp;sys_id=05a9143feba583101cfffdf2dad0cdec" target="_blank" rel="noopener noreferrer">submit your request in Service-Now</a>. Once approved, you will see <strong>API Key</strong> in your My Menu portal list.</p></div>
+  </div>
+</div>
+```
 
 ![AI Commons portal navigation with API Key option.](../images/AI_commons.png)
 
@@ -30,10 +77,16 @@ curl -s https://YOUR-AI-COMMONS-ENDPOINT/v1/models \
   -H "Authorization: Bearer YOUR_AI_COMMONS_API_KEY" \
   | python -c "import sys, json; [print(m['id']) for m in json.load(sys.stdin)['data']]"
 ```
+:::
 
----
+::: {.doc-step #opencode}
+::: {.doc-step__number}
+1
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Tool 1</p>
 
-## Tool 1: Configuring OpenCode
+## Configuring OpenCode
 
 OpenCode is preinstalled in Coder workspaces, or can be installed locally following instructions on [opencode.ai](https://opencode.ai/docs#install).
 
@@ -75,10 +128,17 @@ Launch OpenCode and select your model with `/models`:
 ```bash
 opencode
 ```
+:::
+:::
 
----
+::: {.doc-step #continue}
+::: {.doc-step__number}
+2
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Tool 2</p>
 
-## Tool 2: Configuring Continue (VS Code / Positron)
+## Configuring Continue (VS Code / Positron)
 
 1. Search for and install **Continue** from the VS Code Extensions Marketplace.
 2. Open the Continue panel, click the gear icon (Settings), select **Configs**, and open **Main Config** (`~/.continue/config.yaml`).
@@ -128,8 +188,15 @@ models:
 ```
 
 Replace the endpoint URL and API key with your values, then open the Continue panel to start coding with your models.
+:::
+:::
 
----
+::: {.doc-step #troubleshooting}
+::: {.doc-step__number}
+3
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Verification</p>
 
 ## Authentication Troubleshooting
 
@@ -137,3 +204,18 @@ Replace the endpoint URL and API key with your values, then open the Continue pa
 - Confirm `/v1` is not duplicated (e.g. avoid `/v1/v1`).
 - Confirm the API key is active in the AI Commons portal.
 - Ensure no leading or trailing whitespace was copied.
+:::
+:::
+
+```{=html}
+<nav class="doc-pagination" aria-label="Guide pagination">
+  <a href="ai-agents.html">
+    <span>Previous</span>
+    <strong>Using AI Coding Agents</strong>
+  </a>
+  <a href="../ai-gateway.html" class="doc-pagination__next">
+    <span>Next</span>
+    <strong>DREAM Lab AI Gateway</strong>
+  </a>
+</nav>
+```

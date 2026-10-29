@@ -1,0 +1,315 @@
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var offsetMeta = document.querySelector('meta[name="quarto:offset"]');
+  var offset = offsetMeta ? offsetMeta.getAttribute("content") || "./" : "./";
+
+  // 1. Place campus-bar and lockup-row inside #quarto-header above the navbar
+  var quartoHeader = document.getElementById("quarto-header");
+  var campusBar = document.querySelector(".campus-bar");
+  var lockupWrapper = document.querySelector(".lockup-row-wrapper");
+
+  if (lockupWrapper) {
+    var logoEl = lockupWrapper.querySelector(".ucsb-library-logo");
+    if (logoEl) {
+      logoEl.style.setProperty("--logo-mask-url", 'url("' + offset + 'images/0e14f.png")');
+    }
+    var logoLink = lockupWrapper.querySelector(".lockup-logo-link");
+    if (logoLink) {
+      logoLink.setAttribute("href", offset + "index.html");
+    }
+  }
+
+  if (quartoHeader) {
+    if (lockupWrapper) {
+      quartoHeader.insertBefore(lockupWrapper, quartoHeader.firstChild);
+    }
+    if (campusBar) {
+      quartoHeader.insertBefore(campusBar, quartoHeader.firstChild);
+    }
+  }
+
+  // 2. Move .site-footer outside #quarto-content to be a direct child of <body>
+  var siteFooter = document.querySelector(".site-footer");
+  if (siteFooter && siteFooter.parentElement !== document.body) {
+    document.body.appendChild(siteFooter);
+  }
+
+  // Resolve offset-relative links in footer
+  document.querySelectorAll("[data-site-href]").forEach(function (link) {
+    var target = link.getAttribute("data-site-href");
+    if (target) {
+      link.setAttribute("href", offset + target);
+    }
+  });
+
+  // 3. Highlight "Guides" nav dropdown when on any guide page
+  var pathname = window.location.pathname;
+  if (pathname.indexOf("/guides/") !== -1) {
+    var guidesToggle = document.getElementById("nav-menu-guides");
+    if (guidesToggle) {
+      guidesToggle.classList.add("is-current");
+    }
+  }
+
+  // 4. Hoist .doc-hero or .faq-hero above #quarto-content so it spans full width
+  var quartoContent = document.getElementById("quarto-content");
+  var mainContent = document.querySelector("main.content");
+  var docHero = document.querySelector(".doc-hero, .faq-hero");
+  if (docHero && quartoContent) {
+    quartoContent.parentNode.insertBefore(docHero, quartoContent);
+  }
+
+  // 5. On full-bleed pages (home, guides index, faq), mark body.page-fullbleed
+  var isFullBleed =
+    document.querySelector(".home-intro") ||
+    document.querySelector(".faq-page-content") ||
+    document.querySelector(".guides-landing-section");
+  if (isFullBleed) {
+    document.body.classList.add("page-fullbleed");
+  }
+
+  // 6. On documentation/guide pages with .docs-sidebar, assemble the 3-column .docs-layout
+  var docsSidebar = document.querySelector(".docs-sidebar");
+  var marginSidebar = document.getElementById("quarto-margin-sidebar");
+  if (docsSidebar && mainContent && quartoContent) {
+    if (marginSidebar) {
+      marginSidebar.style.display = "none";
+    }
+
+    // Remove Quarto page-columns classes that interfere with CSS grid
+    mainContent.classList.remove("page-columns", "page-full");
+    mainContent.querySelectorAll(".page-columns, .page-full").forEach(function (el) {
+      el.classList.remove("page-columns", "page-full");
+    });
+
+    var layoutGrid = document.createElement("div");
+    layoutGrid.className = "site-grid docs-layout";
+
+    mainContent.classList.add("doc-content");
+
+    // Move docsSidebar before mainContent inside layoutGrid
+    layoutGrid.appendChild(docsSidebar);
+    layoutGrid.appendChild(mainContent);
+
+    // Build clean 3rd column .on-this-page from h2 sections in mainContent
+    var onThisPage = mainContent.querySelector(".on-this-page");
+    if (!onThisPage) {
+      onThisPage = document.createElement("aside");
+      onThisPage.className = "on-this-page";
+      var titleP = document.createElement("p");
+      titleP.textContent = "On this page";
+      onThisPage.appendChild(titleP);
+
+      mainContent.querySelectorAll("h2").forEach(function (h2) {
+        var stepParent = h2.closest(".doc-step, .doc-intro, section.level2");
+        var targetId = (stepParent && stepParent.id) || h2.id || (h2.parentElement && h2.parentElement.id);
+        if (!targetId) return;
+        var a = document.createElement("a");
+        a.href = "#" + targetId;
+        // Clone text without AnchorJS icon text
+        var clone = h2.cloneNode(true);
+        var anchor = clone.querySelector(".anchorjs-link");
+        if (anchor) anchor.remove();
+        a.textContent = clone.textContent.trim();
+        onThisPage.appendChild(a);
+      });
+    }
+    layoutGrid.appendChild(onThisPage);
+
+    quartoContent.appendChild(layoutGrid);
+  }
+
+  // 7. Automatically frame screenshots inside .doc-content with browser chrome if not already framed
+  document.querySelectorAll(".doc-content figure, .doc-content .quarto-figure").forEach(function (fig) {
+    if (fig.classList.contains("screenshot") || fig.closest(".screenshot")) return;
+    var img = fig.querySelector("img");
+    if (!img) return;
+    var cap = fig.querySelector("figcaption");
+    var captionText = cap ? cap.textContent : "";
+
+    var figureEl = document.createElement("figure");
+    figureEl.className = "screenshot";
+
+    var canvasEl = document.createElement("div");
+    canvasEl.className = "screenshot__canvas";
+
+    var browserEl = document.createElement("div");
+    browserEl.className = "screenshot__browser";
+    browserEl.innerHTML = '<i></i><i></i><i></i><span>coder.dreamlab.ucsb.edu</span>';
+
+    img.className = "screenshot__img";
+    canvasEl.appendChild(browserEl);
+    canvasEl.appendChild(img);
+    figureEl.appendChild(canvasEl);
+
+    if (captionText) {
+      var newCap = document.createElement("figcaption");
+      newCap.textContent = captionText;
+      figureEl.appendChild(newCap);
+    }
+
+    fig.replaceWith(figureEl);
+  });
+
+  // 8. Automatically add .code-block__header with language label + Copy button to Quarto code blocks
+  var langMap = {
+    bash: "Terminal",
+    sh: "Terminal",
+    shell: "Terminal",
+    zsh: "Terminal",
+    python: "Python",
+    py: "Python",
+    r: "R",
+    json: "JSON",
+    yaml: "YAML",
+    yml: "YAML"
+  };
+
+  document.querySelectorAll(".code-copy-outer-scaffold").forEach(function (scaffold) {
+    if (scaffold.classList.contains("has-code-header")) return;
+    scaffold.classList.add("has-code-header", "code-block");
+
+    var codeEl = scaffold.querySelector("pre code");
+    var lang = "Terminal";
+    if (codeEl) {
+      codeEl.classList.forEach(function (cls) {
+        if (cls !== "sourceCode" && langMap[cls.toLowerCase()]) {
+          lang = langMap[cls.toLowerCase()];
+        }
+      });
+    }
+    var customLang = scaffold.getAttribute("data-lang");
+    if (customLang) lang = customLang;
+
+    var header = document.createElement("div");
+    header.className = "code-block__header";
+
+    var langSpan = document.createElement("span");
+    langSpan.textContent = lang;
+
+    var copyBtn = document.createElement("button");
+    copyBtn.type = "button";
+    copyBtn.className = "code-block__copy";
+    copyBtn.setAttribute("aria-live", "polite");
+    copyBtn.innerHTML = '<span class="copy-icon" aria-hidden="true"></span><span class="copy-label">Copy</span>';
+
+    copyBtn.addEventListener("click", function () {
+      var text = codeEl ? codeEl.innerText : "";
+      navigator.clipboard.writeText(text).then(function () {
+        var label = copyBtn.querySelector(".copy-label");
+        if (label) label.textContent = "Copied";
+        setTimeout(function () {
+          if (label) label.textContent = "Copy";
+        }, 1800);
+      });
+    });
+
+    header.appendChild(langSpan);
+    header.appendChild(copyBtn);
+    scaffold.insertBefore(header, scaffold.firstChild);
+  });
+
+  // 9. Wrap tables in .doc-content with .doc-table-wrapper
+  document.querySelectorAll(".doc-content table").forEach(function (table) {
+    table.classList.add("doc-table");
+    if (!table.parentElement.classList.contains("doc-table-wrapper")) {
+      var wrapper = document.createElement("div");
+      wrapper.className = "doc-table-wrapper";
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    }
+  });
+
+  // 10. Interactive FAQ Accordion & Live Search (for faq.html)
+  var faqSearchInput = document.getElementById("faq-search-input");
+  var faqClearBtn = document.getElementById("faq-search-clear");
+  var faqResultsCount = document.getElementById("faq-results-count");
+  var faqEmptyState = document.getElementById("faq-empty-state");
+  var faqEmptyClearBtn = document.getElementById("faq-empty-clear");
+
+  document.querySelectorAll(".faq-item h3 button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.closest(".faq-item");
+      var answer = item.querySelector(".faq-item__answer");
+      var isOpen = item.classList.contains("is-open");
+
+      // Close other open items (accordion behavior matching React app)
+      document.querySelectorAll(".faq-item.is-open").forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove("is-open");
+          var otherBtn = other.querySelector("h3 button");
+          var otherAns = other.querySelector(".faq-item__answer");
+          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+          if (otherAns) otherAns.hidden = true;
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove("is-open");
+        btn.setAttribute("aria-expanded", "false");
+        if (answer) answer.hidden = true;
+      } else {
+        item.classList.add("is-open");
+        btn.setAttribute("aria-expanded", "true");
+        if (answer) answer.hidden = false;
+      }
+    });
+  });
+
+  function filterFaq(query) {
+    var q = (query || "").trim().toLowerCase();
+    if (faqClearBtn) {
+      faqClearBtn.hidden = !q;
+    }
+
+    var totalMatches = 0;
+    document.querySelectorAll(".faq-topic").forEach(function (topicEl) {
+      var topicTitle = (topicEl.getAttribute("data-topic") || "").toLowerCase();
+      var visibleInTopic = 0;
+
+      topicEl.querySelectorAll(".faq-item").forEach(function (itemEl) {
+        var text = itemEl.textContent.toLowerCase();
+        var matches = !q || text.indexOf(q) !== -1 || topicTitle.indexOf(q) !== -1;
+        itemEl.hidden = !matches;
+        if (matches) {
+          visibleInTopic++;
+          totalMatches++;
+        }
+      });
+
+      topicEl.hidden = visibleInTopic === 0;
+    });
+
+    if (faqResultsCount) {
+      if (q) {
+        faqResultsCount.hidden = false;
+        faqResultsCount.innerHTML = totalMatches + ' results for <strong>“' + query.trim() + '”</strong>';
+      } else {
+        faqResultsCount.hidden = true;
+      }
+    }
+
+    if (faqEmptyState) {
+      faqEmptyState.hidden = totalMatches > 0;
+    }
+  }
+
+  if (faqSearchInput) {
+    faqSearchInput.addEventListener("input", function (e) {
+      filterFaq(e.target.value);
+    });
+  }
+  if (faqClearBtn) {
+    faqClearBtn.addEventListener("click", function () {
+      if (faqSearchInput) faqSearchInput.value = "";
+      filterFaq("");
+    });
+  }
+  if (faqEmptyClearBtn) {
+    faqEmptyClearBtn.addEventListener("click", function () {
+      if (faqSearchInput) faqSearchInput.value = "";
+      filterFaq("");
+    });
+  }
+});
+</script>

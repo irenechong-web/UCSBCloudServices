@@ -1,64 +1,157 @@
 ---
-# This is the Guides and Tutorials index page, listing all available guides.
 title: "Guides & Tutorials"
+toc: false
 ---
 
-Practical walkthroughs for getting the most out of DREAM Lab Cloud Services, from setting up RStudio to agentic coding.
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Guides</span>
+    </nav>
 
-::: {.grid-cards}
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">Documentation</p>
+        <h1>Guides &amp; Tutorials</h1>
+        <p>
+          Practical walkthroughs for getting the most out of DREAM Lab Cloud Services, from setting up RStudio to agentic coding.
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
 
-::: {.custom-card}
-<span class="tag">Core Guide</span>
+<section class="home-section guides-landing-section">
+  <div class="site-grid">
+    <div class="offer-grid">
+      <article class="offer-card offer-card--workspace">
+        <div class="offer-card__icon">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Workspace window">
+            <rect x="5" y="8" width="38" height="31" rx="2"></rect>
+            <path d="M5 16h38M12 12h1M17 12h1"></path>
+            <path d="m16 25 5 4-5 4M25 33h8"></path>
+          </svg>
+        </div>
+        <div class="offer-card__content">
+          <span class="experimental-label">Core Guide</span>
+          <h3>Getting Started with Coder Workspaces</h3>
+          <p>
+            Step-by-step walkthrough for creating your first workspace, logging in via UCSB SSO, and connecting with browser tools or local VS Code.
+          </p>
+          <a class="home-link" href="getting-started.html">
+            Read Guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
 
-### Getting Started with Coder Workspaces
-Step-by-step walkthrough for creating your first workspace, logging in via UCSB SSO, and connecting with browser tools or local VS Code.
+      <article class="offer-card offer-card--workspace">
+        <div class="offer-card__icon">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Workspace window">
+            <rect x="5" y="8" width="38" height="31" rx="2"></rect>
+            <path d="M5 16h38M12 12h1M17 12h1"></path>
+            <path d="m16 25 5 4-5 4M25 33h8"></path>
+          </svg>
+        </div>
+        <div class="offer-card__content">
+          <span class="experimental-label">Tutorial</span>
+          <h3>Transferring Files to/from Your Workspace</h3>
+          <p>
+            Learn how to upload and download data using Coder's Web File Browser, Magic Wormhole, or Google Drive integration with Rclone.
+          </p>
+          <a class="home-link" href="file-transfer.html">
+            Read Guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
 
-[Read Guide →](getting-started.qmd)
-:::
+      <article class="offer-card offer-card--workspace">
+        <div class="offer-card__icon">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Workspace window">
+            <rect x="5" y="8" width="38" height="31" rx="2"></rect>
+            <path d="M5 16h38M12 12h1M17 12h1"></path>
+            <path d="m16 25 5 4-5 4M25 33h8"></path>
+          </svg>
+        </div>
+        <div class="offer-card__content">
+          <span class="experimental-label">IDE Guide</span>
+          <h3>RStudio Server</h3>
+          <p>
+            Run RStudio Server directly in your web browser for statistics, tidyverse analysis, and reproducible research projects.
+          </p>
+          <a class="home-link" href="rstudio.html">
+            Read Guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
 
-::: {.custom-card}
-<span class="tag">Tutorial</span>
+      <article class="offer-card offer-card--workspace">
+        <div class="offer-card__icon">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Workspace window">
+            <rect x="5" y="8" width="38" height="31" rx="2"></rect>
+            <path d="M5 16h38M12 12h1M17 12h1"></path>
+            <path d="m16 25 5 4-5 4M25 33h8"></path>
+          </svg>
+        </div>
+        <div class="offer-card__content">
+          <span class="experimental-label">Notebook Guide</span>
+          <h3>Marimo Notebooks</h3>
+          <p>
+            Build reactive Python notebooks stored as pure code, running in the background with tmux and integrated AI assistant chat.
+          </p>
+          <a class="home-link" href="marimo.html">
+            Read Guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
 
-### Transferring Files to/from Your Workspace
-Learn how to upload and download data using Coder's Web File Browser, Magic Wormhole, or Google Drive integration with Rclone.
+      <article class="offer-card offer-card--gateway">
+        <div class="offer-card__icon">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Connected AI gateway">
+            <path d="M24 12v9M13 31l8-5M35 31l-8-5"></path>
+            <path d="m24 5 6 3.5v7L24 19l-6-3.5v-7L24 5ZM13 25l6 3.5v7L13 39l-6-3.5v-7l6-3.5ZM35 25l6 3.5v7L35 39l-6-3.5v-7l6-3.5Z"></path>
+          </svg>
+        </div>
+        <div class="offer-card__content">
+          <span class="experimental-label">AI Guide</span>
+          <h3>Using AI Coding Agents</h3>
+          <p>
+            Run OpenCode safely in an isolated VM connected to on-campus CIT or DREAM Lab AI Gateway models.
+          </p>
+          <a class="home-link" href="ai-agents.html">
+            Read Guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
 
-[Read Guide →](file-transfer.qmd)
-:::
-
-::: {.custom-card}
-<span class="tag">IDE Guide</span>
-
-### RStudio Server
-Run RStudio Server directly in your web browser for statistics, tidyverse analysis, and reproducible research projects.
-
-[Read Guide →](rstudio.qmd)
-:::
-
-::: {.custom-card}
-<span class="tag">Notebook Guide</span>
-
-### Marimo Notebooks
-Build reactive Python notebooks stored as pure code, running in the background with tmux and integrated AI assistant chat.
-
-[Read Guide →](marimo.qmd)
-:::
-
-::: {.custom-card .custom-card--gateway}
-<span class="tag">AI Guide</span>
-
-### Using AI Coding Agents
-Run OpenCode safely in an isolated VM connected to on-campus CIT or DREAM Lab AI Gateway models.
-
-[Read Guide →](ai-agents.qmd)
-:::
-
-::: {.custom-card .custom-card--gateway}
-<span class="tag">Integration</span>
-
-### UCSB AI Commons API with OpenCode & Continue
-Configure OpenAI-compatible API credentials from the campus AI Commons for OpenCode and Continue in VS Code or Positron.
-
-[Read Guide →](ai-commons.qmd)
-:::
-
-:::
+      <article class="offer-card offer-card--gateway">
+        <div class="offer-card__icon">
+          <svg viewBox="0 0 48 48" role="img" aria-label="Connected AI gateway">
+            <path d="M24 12v9M13 31l8-5M35 31l-8-5"></path>
+            <path d="m24 5 6 3.5v7L24 19l-6-3.5v-7L24 5ZM13 25l6 3.5v7L13 39l-6-3.5v-7l6-3.5ZM35 25l6 3.5v7L35 39l-6-3.5v-7l6-3.5Z"></path>
+          </svg>
+        </div>
+        <div class="offer-card__content">
+          <span class="experimental-label">Integration</span>
+          <h3>UCSB AI Commons API with OpenCode &amp; Continue</h3>
+          <p>
+            Configure OpenAI-compatible API credentials from the campus AI Commons for OpenCode and Continue in VS Code or Positron.
+          </p>
+          <a class="home-link" href="ai-commons.html">
+            Read Guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+```

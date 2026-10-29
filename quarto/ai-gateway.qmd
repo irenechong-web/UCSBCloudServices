@@ -1,28 +1,72 @@
 ---
-# This page introduces the DREAM Lab AI Gateway, models, API key generation, and usage policies.
 title: "DREAM Lab AI Gateway"
 ---
 
-Centralized, OpenAI-compatible API access to Large Language Models hosted by campus cloud providers for coding agents and research workflows.
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">AI Gateway</span>
+    </nav>
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">API Services</p>
+        <h1>DREAM Lab AI Gateway</h1>
+        <p>
+          Centralized, OpenAI-compatible API access to Large Language Models hosted by campus cloud providers for coding agents and research workflows.
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
 
-## Overview
+<div class="docs-sidebar">
+  <nav aria-label="AI Gateway navigation">
+    <p class="docs-sidebar__title">Contents</p>
+    <a href="#overview"><span>01</span>Overview</a>
+    <a href="#endpoint-models"><span>02</span>Endpoint &amp; Models</a>
+    <a href="#api-keys"><span>03</span>Creating an API Key</a>
+    <a href="#python-example"><span>04</span>Python Code Example</a>
+    <a href="#privacy-security"><span>05</span>Data Privacy &amp; Security</a>
+    <a href="#responsible-use"><span>06</span>Responsible Use</a>
+  </nav>
+  <div class="sidebar-help">
+    <strong>Key Management</strong>
+    <p>
+      Generate or check your quota at the <a href="https://litellm.dreamlab.ucsb.edu/dreamlab-keys" target="_blank" rel="noopener noreferrer">API Key Manager ↗</a>.
+    </p>
+  </div>
+</div>
+```
 
-::: {.callout-important}
-## Experimental Service Notice
-This is an experimental service. Users may experience occasional interruptions, and we cannot guarantee its long-term availability.
-:::
+::: {.doc-intro}
+```{=html}
+<div class="doc-callout doc-callout--important">
+  <span class="doc-callout__icon" aria-hidden="true">!</span>
+  <div>
+    <strong>Experimental Service Notice</strong>
+    <div><p>This is an experimental service. Users may experience occasional interruptions, and we cannot guarantee its long-term availability.</p></div>
+  </div>
+</div>
+```
+
+<p class="doc-kicker">About the Gateway</p>
+
+## Overview {#overview}
 
 DREAM Lab's AI gateway service provides API access to Large Language Models (LLMs) hosted by campus cloud providers (currently, Google). It can be used in conjunction with a coding agent (such as OpenCode or Continue) or to build custom research AI workflows.
 
 **Note:** The gateway does not provide a web chat UI. The service is primarily oriented toward DREAM Lab workshop attendees, researchers learning AI-assisted coding, and Library staff.
+:::
 
-## API Endpoint & Supported Models
+## API Endpoint & Supported Models {#endpoint-models}
 
 The OpenAI-compatible API endpoint for the gateway service is:
 
-```
-https://litellm.dreamlab.ucsb.edu/v1
-```
+`https://litellm.dreamlab.ucsb.edu/v1`
 
 ### Supported Google Gemini Models
 
@@ -33,24 +77,31 @@ https://litellm.dreamlab.ucsb.edu/v1
 | `gemini-3.5-flash-lite` | Low-cost inference | High-throughput model ideal for text processing and lightweight tasks. |
 | `gemini-embedding-2` | Embeddings | Multimodal embedding model for vector search and retrieval. |
 
-## Creating an API Key
+## Creating an API Key {#api-keys}
 
 Anyone with a valid UCSB NetID can create a key through the **[API Key Manager ↗](https://litellm.dreamlab.ucsb.edu/dreamlab-keys)**.
 
-::: {.callout-note}
-## Key Policies & Restrictions
-- You may have only one active key at a time.
-- If you regenerate a new key, your previous key is automatically disabled.
-- Keys expire automatically after **three months**.
-- Your key has an allocated budget that resets periodically. Use the key manager to view your remaining balance.
-- Usage reflects real API expenses; requests to larger models consume quota faster than lighter models.
-:::
+```{=html}
+<div class="doc-callout doc-callout--note">
+  <span class="doc-callout__icon" aria-hidden="true">ℹ</span>
+  <div>
+    <strong>Key Policies &amp; Restrictions</strong>
+    <div>
+      <ul>
+        <li>You may have only one active key at a time.</li>
+        <li>If you regenerate a new key, your previous key is automatically disabled.</li>
+        <li>Keys expire automatically after <strong>three months</strong>.</li>
+        <li>Your key has an allocated budget that resets periodically. Use the key manager to view your remaining balance.</li>
+        <li>Usage reflects real API expenses; requests to larger models consume quota faster than lighter models.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
 
-## Using the Gateway with Python
+## Using the Gateway with Python {#python-example}
 
-Because the gateway exposes an OpenAI-compatible endpoint, you can interact with models using the standard `openai` Python library.
-
-First, set up a virtual environment and install the library:
+Because the gateway exposes an OpenAI-compatible endpoint, you can interact with models using the standard `openai` Python library:
 
 ```bash
 mkdir llm-example
@@ -90,16 +141,21 @@ Run the script:
 python main.py
 ```
 
-## Data Privacy & Security
+## Data Privacy & Security {#privacy-security}
 
-::: {.callout-warning}
-## Data Classification Restriction
-The DREAM Lab AI Gateway **IS NOT approved** for use with data classified as **P3** or **P4** under the UC data protection levels.
-:::
+```{=html}
+<div class="doc-callout doc-callout--warning">
+  <span class="doc-callout__icon" aria-hidden="true">!</span>
+  <div>
+    <strong>Data Classification Restriction</strong>
+    <div><p>The DREAM Lab AI Gateway <strong>IS NOT approved</strong> for use with data classified as <strong>P3</strong> or <strong>P4</strong> under the UC data protection levels.</p></div>
+  </div>
+</div>
+```
 
 The service routes requests through Google's Gemini Enterprise Agent Platform: Google will not use campus data to train or fine-tune AI models. For full compliance details, see [UC Protection Levels](https://it.ucsb.edu/security/compliance/uc-protection-levels) and Google's zero data retention agreements.
 
-## Responsible Use
+## Responsible Use {#responsible-use}
 
 You are responsible for how you use this service and anything it generates. Verify outputs before relying on them in research. Do not use AI services as a substitute for medical, legal, or financial advice.
 
@@ -109,3 +165,16 @@ You are responsible for how you use this service and anything it generates. Veri
 
 - [UC Responsible AI Principles ↗](https://ai.universityofcalifornia.edu/governance-transparency/)
 - [UCSB Guidelines for AI Use ↗](https://cio.ucsb.edu/artificial-intelligence/ai-use-guidelines)
+
+```{=html}
+<nav class="doc-pagination" aria-label="Guide pagination">
+  <a href="guides/index.html">
+    <span>Previous</span>
+    <strong>All Guides</strong>
+  </a>
+  <a href="faq.html" class="doc-pagination__next">
+    <span>Next</span>
+    <strong>Frequently Asked Questions</strong>
+  </a>
+</nav>
+```

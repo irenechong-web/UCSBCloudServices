@@ -1,22 +1,75 @@
 ---
-# This guide details how to launch and configure RStudio Server in a Coder Workspace.
 title: "Getting Started with RStudio"
 ---
 
-Run RStudio Server directly in your web browser inside an isolated cloud workspace for statistical computing, data visualization, and reproducible research.
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <a href="index.html">Guides</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">RStudio Server</span>
+    </nav>
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">Guide</p>
+        <h1>Getting Started with RStudio</h1>
+        <p>
+          Run RStudio Server directly in your web browser inside an isolated cloud workspace for statistical computing, data visualization, and reproducible research.
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
+
+<div class="docs-sidebar">
+  <nav aria-label="Guides navigation">
+    <p class="docs-sidebar__title">All Guides</p>
+    <a href="getting-started.html"><span>01</span>Getting Started</a>
+    <a href="file-transfer.html"><span>02</span>Transferring Files</a>
+    <a href="rstudio.html" class="is-current" aria-current="page"><span>03</span>RStudio Server</a>
+    <a href="marimo.html"><span>04</span>Marimo Notebooks</a>
+    <a href="ai-agents.html"><span>05</span>Using AI Coding Agents</a>
+    <a href="ai-commons.html"><span>06</span>UCSB AI Commons API</a>
+  </nav>
+  <div class="sidebar-help">
+    <strong>R &amp; Data Support</strong>
+    <p>
+      DREAM Lab staff offer regular consultations on R and statistics.
+    </p>
+  </div>
+</div>
+```
+
+::: {.doc-intro #overview}
+<p class="doc-kicker">R in the Cloud</p>
 
 ## Overview
 
 RStudio is a powerful integrated development environment (IDE) for R programming. Coder workspaces allow you to run RStudio Server, which provides the full RStudio interface accessible securely through any modern web browser.
-
----
-
-## Step 1: Creating a Workspace with RStudio
-
-::: {.callout-note}
-## Enable during creation
-RStudio must be enabled when the workspace is created. It cannot be added to an existing workspace after creation.
 :::
+
+::: {.doc-step #create-workspace}
+::: {.doc-step__number}
+1
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Configuration</p>
+
+## Creating a Workspace with RStudio
+
+```{=html}
+<div class="doc-callout doc-callout--note">
+  <span class="doc-callout__icon" aria-hidden="true">ℹ</span>
+  <div>
+    <strong>Enable during creation</strong>
+    <div><p>RStudio must be enabled when the workspace is created. It cannot be added to an existing workspace after creation.</p></div>
+  </div>
+</div>
+```
 
 1. Navigate to the **New Workspace** page at [coder.dreamlab.ucsb.edu](https://coder.dreamlab.ucsb.edu).
 2. Complete the required workspace name and policy checks.
@@ -26,10 +79,17 @@ RStudio must be enabled when the workspace is created. It cannot be added to an 
 Once booted, launch RStudio in a new browser tab with the RStudio button on the dashboard:
 
 ![Coder workspace dashboard showing RStudio button on port 8787.](../images/workspace-rstudio.png)
+:::
+:::
 
----
+::: {.doc-step #projects}
+::: {.doc-step__number}
+2
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Organization</p>
 
-## Step 2: Setting Up an RStudio Project
+## Setting Up an RStudio Project
 
 RStudio Projects organize your scripts, datasets, and working directories cleanly:
 
@@ -40,10 +100,17 @@ RStudio Projects organize your scripts, datasets, and working directories cleanl
 5. Click **Create Project**.
 
 RStudio generates an `.Rproj` file storing project-specific settings so you can easily resume work.
+:::
+:::
 
----
+::: {.doc-step #packages}
+::: {.doc-step__number}
+3
+:::
+::: {.doc-step__body}
+<p class="doc-kicker">Packages &amp; Git</p>
 
-## Step 3: Installing Packages & Git Setup
+## Installing Packages & Git Setup
 
 Install packages in your cloud RStudio session just like a local installation:
 
@@ -57,10 +124,15 @@ install.packages("devtools")
 devtools::install_github("username/repository")
 ```
 
-::: {.callout-tip}
-## Isolated Package Storage
-Packages installed in your workspace persist across sessions within your persistent home directory, isolated from other workspaces to ensure reproducibility.
-:::
+```{=html}
+<div class="doc-callout doc-callout--tip">
+  <span class="doc-callout__icon" aria-hidden="true">i</span>
+  <div>
+    <strong>Isolated Package Storage</strong>
+    <div><p>Packages installed in your workspace persist across sessions within your persistent home directory, isolated from other workspaces to ensure reproducibility.</p></div>
+  </div>
+</div>
+```
 
 ### Setting Up Git
 
@@ -77,3 +149,18 @@ git config --global user.email "your.email@example.com"
 - [RStudio Cheat Sheets ↗](https://posit.co/resources/cheatsheets/) — Quick syntax and workflow reference.
 - [R for Data Science (2e) ↗](https://r4ds.hadley.nz/) — Definitive guide to modern data science in R.
 - [Posit Community ↗](https://community.rstudio.com/) — Knowledge sharing and Q&A.
+:::
+:::
+
+```{=html}
+<nav class="doc-pagination" aria-label="Guide pagination">
+  <a href="file-transfer.html">
+    <span>Previous</span>
+    <strong>Transferring Files</strong>
+  </a>
+  <a href="marimo.html" class="doc-pagination__next">
+    <span>Next</span>
+    <strong>Marimo Notebooks</strong>
+  </a>
+</nav>
+```

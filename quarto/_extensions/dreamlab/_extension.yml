@@ -1,0 +1,18 @@
+title: UCSB DREAM Lab Cloud Services Theme
+author: UCSB Library DREAM Lab
+version: 1.0.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    html:
+      theme:
+        - cosmo
+        - dreamlab.scss
+      include-before-body: campus-bar.html
+      include-after-body:
+        - footer.html
+        - site-script.html
+      toc: true
+      toc-depth: 3
+      toc-location: right
+      smooth-scroll: true

@@ -1,19 +1,60 @@
 ---
-# This page provides an overview of Coder Workspaces, hardware/software specs, and usage policies.
 title: "Coder Workspaces: Overview"
 ---
 
-On-demand virtual machines with commonly used data science tools pre-installed for research and teaching at UC Santa Barbara.
+```{=html}
+<div class="doc-hero">
+  <div class="site-grid">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Cloud Services</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">Coder Workspaces</span>
+    </nav>
+    <div class="doc-hero__heading">
+      <div>
+        <p class="eyebrow">Cloud Environments</p>
+        <h1>Coder Workspaces: Overview</h1>
+        <p>
+          On-demand virtual machines with commonly used data science tools pre-installed for research and teaching at UC Santa Barbara.
+        </p>
+      </div>
+      <span class="hexagon-motif" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+</div>
 
-## Overview
+<div class="docs-sidebar">
+  <nav aria-label="Coder Workspaces navigation">
+    <p class="docs-sidebar__title">Contents</p>
+    <a href="#overview"><span>01</span>Overview</a>
+    <a href="#hardware-and-software"><span>02</span>Hardware &amp; Software</a>
+    <a href="#default-software"><span>03</span>Default Software</a>
+    <a href="#optional-software"><span>04</span>Optional Software</a>
+    <a href="#workspace-lifecycle"><span>05</span>Workspace Lifecycle</a>
+    <a href="#policies"><span>06</span>Policies</a>
+  </nav>
+  <div class="sidebar-help">
+    <strong>Getting Help</strong>
+    <p>
+      Email <a href="mailto:dreamlab@library.ucsb.edu">dreamlab@library.ucsb.edu</a> or join the <a href="https://join.slack.com/t/ucsbcarpentry/shared_invite/zt-3chxqtb2b-cVc3l~yj1ghUhZLNmOLfhQ" target="_blank" rel="noopener noreferrer">UCSB Carpentry Slack</a>.
+    </p>
+  </div>
+</div>
+```
+
+::: {.doc-intro}
+<p class="doc-kicker">About the Service</p>
+
+## Overview {#overview}
 
 Coder Workspaces are on-demand virtual machines with commonly used data science tools pre-installed. Anyone with a UCSB NetID can create a workspace to use for the duration of the academic quarter. Workspaces are deleted at the end of each quarter.
 
 The service is managed by the [Library DREAM Lab](https://www.library.ucsb.edu/dreamlab) and uses computing resources provided by the [College of Letters and Science IT (LSIT)](https://www.lsit.ucsb.edu).
 
 See our [Getting Started Guide](guides/getting-started.qmd) for a step-by-step introduction to creating and connecting to your first workspace.
+:::
 
-## Hardware and Software
+## Hardware and Software {#hardware-and-software}
 
 Each workspace is an isolated virtual machine running Ubuntu Linux with dedicated resources:
 
@@ -24,7 +65,7 @@ Each workspace is an isolated virtual machine running Ubuntu Linux with dedicate
 | User Data Disk | 64 GB |
 | OS Disk | 15 GB |
 
-### Default Software
+### Default Software {#default-software}
 
 All workspaces include the following software pre-installed:
 
@@ -41,7 +82,7 @@ All workspaces include the following software pre-installed:
 
 Additional software may be installed using [`apt`](https://documentation.ubuntu.com/server/how-to/software/package-management/) or [`pixi`](https://pixi.sh).
 
-### Optional Software
+### Optional Software {#optional-software}
 
 Services can be enabled when the workspace is created on the New Workspace form:
 
@@ -51,7 +92,7 @@ Services can be enabled when the workspace is created on the New Workspace form:
 | [VS Code Web](https://github.com/coder/code-server) | — | Run VS Code in the browser |
 | [VS Code Desktop (Server)](https://code.visualstudio.com/docs/remote/vscode-server) | — | Connect to the workspace using local VS Code |
 
-## Workspace Lifecycle
+## Workspace Lifecycle {#workspace-lifecycle}
 
 - Workspaces shut down (stop) after **four hours** of inactivity.
 - You can manually **stop** a workspace by clicking the "Stop" button in Coder.
@@ -59,12 +100,17 @@ Services can be enabled when the workspace is created on the New Workspace form:
 - Deleting a workspace deletes all files on the workspace!
 - All workspaces will be deleted at the end of each academic quarter.
 
-## Policies
+## Policies {#policies}
 
-::: {.callout-warning}
-## Backup Your Data
-Data is not backed up; users are responsible for their own backups. Please use GitHub, Google Drive (via Rclone), or download important files regularly.
-:::
+```{=html}
+<div class="doc-callout doc-callout--warning">
+  <span class="doc-callout__icon" aria-hidden="true">!</span>
+  <div>
+    <strong>Backup Your Data</strong>
+    <div><p>Data is not backed up; users are responsible for their own backups. Please use GitHub, Google Drive (via Rclone), or download important files regularly.</p></div>
+  </div>
+</div>
+```
 
 - **Backup your data:** Data is not backed up; users are responsible for their own backups.
 - **Deletion:** All workspaces are automatically deleted at the end of each quarter.
@@ -73,3 +119,16 @@ Data is not backed up; users are responsible for their own backups. Please use G
 - **Inactivity:** Workspaces stop automatically after four hours of inactivity to conserve resources. They can be resumed by clicking the "Start" button.
 - **Software Installation:** Users may install additional software using standard package managers.
 - **Access by Staff:** Workspaces may be accessed by staff in the Library or LSIT. Confidential or sensitive information should not be stored.
+
+```{=html}
+<nav class="doc-pagination" aria-label="Guide pagination">
+  <a href="index.html">
+    <span>Previous</span>
+    <strong>Home</strong>
+  </a>
+  <a href="guides/getting-started.html" class="doc-pagination__next">
+    <span>Next</span>
+    <strong>Getting Started Guide</strong>
+  </a>
+</nav>
+```

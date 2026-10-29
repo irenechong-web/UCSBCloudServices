@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - images/**
 
 website:
   title: "DREAM Lab Cloud Services"
@@ -38,8 +40,7 @@ website:
         href: ai-gateway.qmd
       - text: "FAQ"
         href: faq.qmd
-    right:
-      - text: "About DREAM Lab ↗"
+      - text: "About the DREAM Lab ↗"
         href: https://www.library.ucsb.edu/dreamlab
 
   page-footer:
